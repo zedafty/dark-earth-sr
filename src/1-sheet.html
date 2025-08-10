@@ -1,0 +1,825 @@
+<!-- Dark Earth (Simplified Rules) Character Sheet HTML -->
+<!-- Coding by Zedafty -->
+<!-- Version 1.00 -->
+
+<input type="hidden" name="attr_sheet-version" value="0" />
+<input type="hidden" name="attr_sheet-init" value="0" />
+<input type="hidden" name="attr_sheet-lang" value="" />
+<input type="hidden" name="attr_sheet-theme" class="theme" value="default" />
+<input type="hidden" name="attr_sheet-type" class="type" value="pc" />
+<input type="hidden" name="attr_settings-toggle" value="0" />
+<input type="hidden" name="attr_wgm" value="" />
+
+<div class="page">
+
+	<!-- HEADING -->
+	<div class="heading">
+
+		<!-- LOGO -->
+		<div class="logo"><span></span></div>
+
+		<div>
+
+			<!-- CHARACTER NAME -->
+			<div class="character-name">
+				<small data-i18n="char-name"></small>
+				<input type="text" class="input" name="attr_char-name" title="@{char-name}" data-i18n-placeholder="char-name-pl" />
+			</div>
+
+			<!-- CHARACTER STATS -->
+			<div class="character-stats">
+				<div>
+					<div>
+						<label data-i18n="char-caste"></label>
+						<input type="text" name="attr_char-caste" title="@{char-caste}" data-i18n-placeholder="char-caste-pl" />
+					</div>
+					<div>
+						<label data-i18n="char-role"></label>
+						<input type="text" name="attr_char-role" title="@{char-role}" data-i18n-placeholder="char-role-pl" />
+					</div>
+				</div>
+				<div>
+					<div>
+						<label data-i18n="char-gender"></label>
+						<select name="attr_char-gender" title="@{char-gender}">
+							<option value="male" data-i18n="char-gender-male" selected></option>
+							<option value="female"data-i18n="char-gender-female" ></option>
+							<option value="other"data-i18n="char-gender-other" ></option>
+						</select>
+					</div>
+					<div>
+						<label data-i18n="char-age"></label>
+						<input type="number" name="attr_char-age" title="@{char-age}" min="0" value="18" />
+					</div>
+				</div>
+			</div>
+
+			<!-- MODBAR -->
+			<div class="modbar">
+				<div>
+					<span data-i18n="bonus"></span>
+					<input type="radio" name="attr_mod" title="@{mod}" value="0" style="display: none;" checked />
+					<div class="group bonus">
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="1" />
+							<span data-i18n="bonus-1d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="2" />
+							<span data-i18n="bonus-2d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="3" />
+							<span data-i18n="bonus-3d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="4" />
+							<span data-i18n="bonus-4d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="5" />
+							<span data-i18n="bonus-5d"></span>
+						</label>
+					</div>
+					<span data-i18n="malus"></span>
+					<div class="group malus">
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="-1" />
+							<span data-i18n="malus-1d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="-2" />
+							<span data-i18n="malus-2d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="-3" />
+							<span data-i18n="malus-3d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="-4" />
+							<span data-i18n="malus-4d"></span>
+						</label>
+						<label>
+							<input type="radio" name="attr_mod" title="@{mod}" value="-5" />
+							<span data-i18n="malus-5d"></span>
+						</label>
+					</div>
+					<input type="hidden" name="attr_mod-reset-show" value="0" />
+					<button type="action" name="act_mod-reset" title="%{mod-reset}"><span data-i18n="reset"></span></button>
+				</div>
+				<div class="roller">
+					<button type="action" name="act_roll" title="%{roll}"><span data-i18n="roll"></span></button>
+					<input type="number" name="attr_roll" title="@{roll}" min="0" max="10" value="0" />
+				</div>
+				<span class="whisper-toggle">
+					<input type="checkbox" name="attr_whisper-toggle" title="@{whisper-toggle}" value="1" />
+					<span class="whisper-gm" data-i18n="whisper-gm"></span>
+					<span class="whisper-all" data-i18n="whisper-all"></span>
+				</span>
+				<span class="settings-toggle">
+					<input type="checkbox" name="attr_settings-toggle" title="@{settings-toggle}" value="1" />
+					<span data-i18n="show-hide-settings"></span>
+				</span>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- SETTINGS -->
+	<div class="settings">
+		<div class="sheet">
+			<h4 data-i18n="sheet"></h4>
+			<div class="line">
+				<label data-i18n="sheet-type"></label>
+				<select name="attr_sheet-type" title="@{sheet-type}">
+					<option value="pc" data-i18n="sheet-type-pc" selected></option>
+					<option value="npc" data-i18n="sheet-type-npc"></option>
+					<option value="cre" data-i18n="sheet-type-cre"></option>
+				</select>
+			</div>
+			<div class="line">
+				<label data-i18n="sheet-theme"></label>
+				<select name="attr_sheet-theme" title="@{theme}">
+					<option value="default" data-i18n="sheet-theme-default" selected></option>
+					<option value="light" data-i18n="sheet-theme-light"></option>
+					<option value="dark" data-i18n="sheet-theme-dark"></option>
+				</select>
+			</div>
+			<div class="recalc">
+				<button type="action" name="act_recalc" title="%{recalc}" data-i18n="recalc"></button>
+			</div>
+		</div>
+		<div class="modifiers">
+			<h4 data-i18n="modifiers"></h4>
+			<div>
+				<label data-i18n="health"></label>
+				<input type="number" name="attr_health-mod" title="@{health-mod}" value="5" />
+			</div>
+			<div>
+				<label data-i18n="energy"></label>
+				<input type="number" name="attr_energy-mod" title="@{energy-mod}" value="0" />
+			</div>
+			<div>
+				<label data-i18n="init"></label>
+				<input type="number" name="attr_init-mod" title="@{init-mod}" value="0" />
+			</div>
+			<div>
+				<label data-i18n="encumbrance"></label>
+				<input type="number" name="attr_enc-mod" title="@{enc-mod}" value="0" />
+			</div>
+		</div>
+		<div class="options">
+			<h4 data-i18n="options"></h4>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_mod-autoreset" title="@{mod-autoreset}" value="1" />
+					<span data-i18n="opt-mod-autoreset"></span>
+				</label>
+			</div>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_cond-autoset" title="@{cond-autoset}" value="1" />
+					<span data-i18n="opt-cond-autoset"></span>
+				</label>
+			</div>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_wpn-str-half" title="@{wpn-str-half}" value="1" />
+					<span data-i18n="opt-wpn-str-half"></span>
+				</label>
+			</div>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_wpn-def-shd" title="@{wpn-def-shd}" value="1" />
+					<span data-i18n="opt-wpn-def-shd"></span>
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="two-columns col-7-13">
+
+		<div>
+
+			<!-- ABILITIES -->
+			<div class="abilities section border padding-top">
+				<h4 data-i18n="abilities"></h4>
+				<div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_abi-str" title="%{abi-str}"><span data-i18n="abi-str"></span></button>
+						</div>
+						<div>
+							<small data-i18n="abi-str-pry"></small>
+							<small data-i18n="abi-str-car"></small>
+							<small data-i18n="abi-str-run"></small>
+						</div>
+						<input type="number" name="attr_abi-str" title="@{abi-str}" min="0" max="10" value="1" />
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_abi-acr" title="%{abi-acr}"><span data-i18n="abi-acr"></span></button>
+						</div>
+						<div>
+							<small data-i18n="abi-acr-att"></small>
+							<small data-i18n="abi-acr-int"></small>
+							<small data-i18n="abi-acr-sur"></small>
+						</div>
+						<input type="hidden" name="attr_abi-acr-half" value="0" />
+						<input type="number" name="attr_abi-acr" title="@{abi-acr}" min="0" max="10" value="1" />
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_abi-agi" title="%{abi-agi}"><span data-i18n="abi-agi"></span></button>
+						</div>
+						<div>
+							<small data-i18n="abi-agi-hid"></small>
+							<small data-i18n="abi-agi-dod"></small>
+							<small data-i18n="abi-agi-cli"></small>
+						</div>
+						<input type="number" name="attr_abi-agi" title="@{abi-agi}" min="0" max="10" value="1" />
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_abi-res" title="%{abi-res}"><span data-i18n="abi-res"></span></button>
+						</div>
+						<div>
+							<small data-i18n="abi-res-wit"></small>
+							<small data-i18n="abi-res-end"></small>
+							<small data-i18n="abi-res-reg"></small>
+						</div>
+						<input type="number" name="attr_abi-res" title="@{abi-res}" min="0" max="10" value="1" />
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_abi-tem" title="%{abi-tem}"><span data-i18n="abi-tem"></span></button>
+						</div>
+						<div>
+							<small data-i18n="abi-tem-mot"></small>
+							<small data-i18n="abi-tem-res"></small>
+							<small data-i18n="abi-tem-ove"></small>
+						</div>
+						<input type="number" name="attr_abi-tem" title="@{abi-tem}" min="0" max="10" value="1" />
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_abi-sen" title="%{abi-sen}"><span data-i18n="abi-sen"></span></button>
+						</div>
+						<div>
+							<small data-i18n="abi-sen-obs"></small>
+							<small data-i18n="abi-sen-dir"></small>
+							<small data-i18n="abi-sen-sea"></small>
+						</div>
+						<input type="number" name="attr_abi-sen" title="@{abi-sen}" min="0" max="10" value="1" />
+					</div>
+				</div>
+			</div>
+
+			<!-- SKILLS -->
+			<div class="skills section border padding-top">
+				<h4 data-i18n="skills"></h4>
+				<div>
+					<div>
+						<label data-i18n="skl-combat"></label>
+						<div>
+							<div>
+								<button type="action" name="act_skl-wpn-light" title="%{skl-wpn-light}" data-i18n="skl-wpn-light"></button>
+							</div>
+							<input type="number" name="attr_skl-wpn-light" title="@{skl-wpn-light}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-wpn-heavy" title="%{skl-wpn-heavy}" data-i18n="skl-wpn-heavy"></button>
+							</div>
+							<input type="number" name="attr_skl-wpn-heavy" title="@{skl-wpn-heavy}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-wpn-throw" title="%{skl-wpn-throw}" data-i18n="skl-wpn-throw"></button>
+							</div>
+							<input type="number" name="attr_skl-wpn-throw" title="@{skl-wpn-throw}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-wpn-fire" title="%{skl-wpn-fire}" data-i18n="skl-wpn-fire"></button>
+							</div>
+							<input type="number" name="attr_skl-wpn-fire" title="@{skl-wpn-fire}" min="0" max="10" value="0" />
+						</div>
+					</div>
+					<div>
+						<label data-i18n="skl-communication"></label>
+						<div>
+							<div>
+								<button type="action" name="act_skl-bullshit" title="%{skl-bullshit}" data-i18n="skl-bullshit"></button>
+							</div>
+							<input type="number" name="attr_skl-bullshit" title="@{skl-bullshit}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-oratory" title="%{skl-oratory}" data-i18n="skl-oratory"></button>
+							</div>
+							<input type="number" name="attr_skl-oratory" title="@{skl-oratory}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-empathy" title="%{skl-empathy}" data-i18n="skl-empathy"></button>
+							</div>
+							<input type="number" name="attr_skl-empathy" title="@{skl-empathy}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-bargain" title="%{skl-bargain}" data-i18n="skl-bargain"></button>
+							</div>
+							<input type="number" name="attr_skl-bargain" title="@{skl-bargain}" min="0" max="10" value="0" />
+						</div>
+					</div>
+					<div>
+						<label data-i18n="skl-erudition"></label>
+						<div>
+							<div>
+								<button type="action" name="act_skl-folklore" title="%{skl-folklore}" data-i18n="skl-folklore"></button>
+							</div>
+							<input type="number" name="attr_skl-folklore" title="@{skl-folklore}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-letters" title="%{skl-letters}" data-i18n="skl-letters"></button>
+							</div>
+							<input type="number" name="attr_skl-letters" title="@{skl-letters}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-territory" title="%{skl-territory}" data-i18n="skl-territory"></button>
+							</div>
+							<input type="number" name="attr_skl-territory" title="@{skl-territory}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-tradition" title="%{skl-tradition}" data-i18n="skl-tradition"></button>
+							</div>
+							<input type="number" name="attr_skl-tradition" title="@{skl-tradition}" min="0" max="10" value="0" />
+						</div>
+					</div>
+					<div>
+						<label data-i18n="skl-technic"></label>
+						<div>
+							<div>
+								<button type="action" name="act_skl-construct" title="%{skl-construct}" data-i18n="skl-construct"></button>
+							</div>
+							<input type="number" name="attr_skl-construct" title="@{skl-construct}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-making" title="%{skl-making}" data-i18n="skl-making"></button>
+							</div>
+							<input type="number" name="attr_skl-making" title="@{skl-making}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-mecanical" title="%{skl-mecanical}" data-i18n="skl-mecanical"></button>
+							</div>
+							<input type="number" name="attr_skl-mecanical" title="@{skl-mecanical}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-medicine" title="%{skl-medicine}" data-i18n="skl-medicine"></button>
+							</div>
+							<input type="number" name="attr_skl-medicine" title="@{skl-medicine}" min="0" max="10" value="0" />
+						</div>
+					</div>
+					<div>
+						<label data-i18n="skl-survival"></label>
+						<div>
+							<div>
+								<button type="action" name="act_skl-fauna" title="%{skl-fauna}" data-i18n="skl-fauna"></button>
+							</div>
+							<input type="number" name="attr_skl-fauna" title="@{skl-fauna}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-flora" title="%{skl-flora}" data-i18n="skl-flora"></button>
+							</div>
+							<input type="number" name="attr_skl-flora" title="@{skl-flora}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-darkness" title="%{skl-darkness}" data-i18n="skl-darkness"></button>
+							</div>
+							<input type="number" name="attr_skl-darkness" title="@{skl-darkness}" min="0" max="10" value="0" />
+						</div>
+						<div class="merge-inputs">
+							<div>
+								<button type="action" name="act_skl-stallite" title="%{skl-stallite}" data-i18n="skl-stallite"></button>
+							</div>
+							<input type="number" name="attr_skl-stallite" title="@{skl-stallite}" min="0" max="10" value="0" />
+						</div>
+					</div>
+					<div>
+						<label data-i18n="notes"></label>
+						<div class="autoexpand">
+							<textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes-pl" title="@{notes}"></textarea>
+							<span name="attr_notes"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div>
+
+			<div class="two-columns col-4-1">
+
+				<!-- RESOURCES AND VALUES -->
+				<div class="resources-values section border">
+					<h4 data-i18n="resources-and-values"></h4>
+					<div>
+						<div>
+							<small></small>
+							<div class="number-box">
+								<small><abbr data-i18n="pts-abbr" data-i18-title="pts"></abbr></small>
+								<span></span>
+								<small><abbr data-i18n="max-abbr" data-i18-title="max"></abbr></small>
+							</div>
+							<label data-i18n="health"></label>
+							<div class="number-box">
+								<input type="number" name="attr_health" title="@{health}" value="0" readonly />
+								<span>/</span>
+								<input type="number" name="attr_health_max" title="@{health|max}" value="0" readonly />
+							</div>
+							<small></small>
+							<div class="number-box">
+								<small><abbr data-i18n="pts-abbr" data-i18-title="pts"></abbr></small>
+								<span></span>
+								<small><abbr data-i18n="max-abbr" data-i18-title="max"></abbr></small>
+							</div>
+							<label data-i18n="energy"></label>
+							<div class="number-box">
+								<input type="number" name="attr_energy" title="@{sp}" min="0" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_energy_max" title="@{energy|max}" value="0" readonly />
+							</div>
+							<small></small>
+							<div class="number-box">
+								<small><abbr data-i18n="val-abbr" data-i18-title="val"></abbr></small>
+							</div>
+							<div class="button-box">
+								<button type="action" name="act_init" title="%{init}" data-i18n="init"></button>
+							</div>
+							<div class="number-box">
+								<input type="number" name="attr_init" title="@{init}" value="0" readonly />
+							</div>
+						</div>
+						<div>
+							<small>&nbsp;</small>
+							<small></small>
+							<label data-i18n="wounds"></label>
+							<div class="number-box border">
+								<input type="number" name="attr_wnd1" title="@{attr_wnd1}" min="0" max="50" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wnd2" title="@{attr_wnd2}" min="0" max="50" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wnd3" title="@{attr_wnd3}" min="0" max="50" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wnd4" title="@{attr_wnd4}" min="0" max="50" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wnd5" title="@{attr_wnd5}" min="0" max="50" value="0" />
+							</div>
+							<small>&nbsp;</small>
+							<small></small>
+							<label data-i18n="weather"></label>
+							<div class="number-box border">
+								<input type="number" name="attr_wth1" title="@{attr_wth1}" min="0" max="10" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wth2" title="@{attr_wth2}" min="0" max="10" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wth3" title="@{attr_wth3}" min="0" max="10" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wth4" title="@{attr_wth4}" min="0" max="10" value="0" />
+								<span>/</span>
+								<input type="number" name="attr_wth5" title="@{attr_wth5}" min="0" max="10" value="0" />
+							</div>
+							<small></small>
+							<div class="number-box">
+								<small><abbr data-i18n="val-abbr" data-i18-title="val"></abbr></small>
+								<span></span>
+								<small><abbr data-i18n="max-abbr" data-i18-title="max"></abbr></small>
+							</div>
+							<label data-i18n="encumbrance"></label>
+							<div class="number-box">
+								<input type="number" name="attr_enc" title="@{enc}" value="0" readonly />
+								<span>/</span>
+								<input type="number" name="attr_enc_max" title="@{enc|max}" value="0" readonly />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- CONDITIONS -->
+				<div class="conditions section">
+					<h4 data-i18n="conditions"></h4>
+					<div>
+						<div>
+							<label class="check-box" data-i18n-title="cond-exhausted-tt">
+								<input type="checkbox" name="attr_cond-exhausted" title="@{cond-exhausted}" value="1" />
+								<span data-i18n="cond-exhausted"></span>
+							</label>
+						</div>
+						<div>
+							<label class="check-box" data-i18n-title="cond-wounded-tt">
+								<input type="checkbox" name="attr_cond-wounded" title="@{cond-wounded}" value="1" />
+								<span data-i18n="cond-wounded"></span>
+							</label>
+						</div>
+						<div>
+							<label class="check-box" data-i18n-title="cond-dying-tt">
+								<input type="checkbox" name="attr_cond-dying" title="@{cond-dying}" value="1" />
+								<span data-i18n="cond-dying"></span>
+							</label>
+						</div>
+						<div>
+							<label class="check-box" data-i18n-title="cond-encumbered-tt">
+								<input type="checkbox" name="attr_cond-encumbered" title="@{cond-encumbered}" value="1" />
+								<span data-i18n="cond-encumbered"></span>
+							</label>
+						</div>
+						<div>
+							<label class="check-box" data-i18n-title="cond-overburdened-tt">
+								<input type="checkbox" name="attr_cond-overburdened" title="@{cond-overburdened}" value="1" />
+								<span data-i18n="cond-overburdened"></span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- WEAPONS -->
+			<div class="weapons section border">
+				<h4 data-i18n="weapons"></h4>
+				<div>
+					<div>
+						<small></small>
+						<small></small>
+						<small><abbr data-i18n="wpn-cbt-abbr" data-i18n-title="wpn-cbt"></abbr></small>
+						<small><abbr data-i18n="wpn-dmg-abbr" data-i18n-title="wpn-dmg"></abbr></small>
+						<small data-i18n="wpn-str"></small>
+						<small><abbr data-i18n="def-abbr" data-i18n-title="def"></abbr></small>
+						<small data-i18n="wpn-spec"></small>
+						<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_wpn1" title="%{wpn1}" data-i18n="wpn1-lbl"></button>
+							<button type="action" name="act_wpn1-def" title="%{wpn1-def}" data-i18n="wpn-parry"></button>
+						</div>
+						<input type="text" name="attr_wpn1-name" title="@{wpn1-name}" data-i18n-placeholder="wpn-name-pl" />
+						<span class="select-box">
+							<select name="attr_wpn1-sel" title="@{wpn1}">
+								<option value="abi-acr-half" data-i18n="abi-acr-half" selected></option>
+								<option value="abi-acr" data-i18n="abi-acr"></option>
+								<option value="skl-wpn-light" data-i18n="skl-wpn-light"></option>
+								<option value="skl-wpn-heavy" data-i18n="skl-wpn-heavy"></option>
+							</select>
+							<input type="number" name="attr_wpn1" value="0" readonly />
+						</span>
+						<input type="number" name="attr_wpn1-dmg" title="@{wpn1-dmg}" value="0" min="-5" max="20" />
+						<label class="check-box no-text">
+							<input type="checkbox" name="attr_wpn1-str" title="@{wpn1-str}" value="1" />
+							<span></span>
+						</label>
+						<input type="number" name="attr_wpn1-def" title="@{wpn1-def}" value="0" min="0" max="5" />
+						<input type="text" name="attr_wpn1-spec" title="@{wpn1-spec}" data-i18n-placeholder="wpn-spec-pl" />
+						<input type="number" name="attr_wpn1-enc" title="@{wpn1-enc}" value="0" min="0" max="10" />
+					</div>
+					<div class="merge-inputs">
+						<div class="button-box">
+							<button type="action" name="act_wpn2" title="%{wpn2}" data-i18n="wpn2-lbl"></button>
+							<button type="action" name="act_wpn2-def" title="%{wpn2-def}" data-i18n="wpn-parry"></button>
+						</div>
+						<input type="text" name="attr_wpn2-name" title="@{wpn2-name}" data-i18n-placeholder="wpn-name-pl" />
+						<span class="select-box">
+							<select name="attr_wpn2-sel" title="@{wpn2}">
+								<option value="abi-acr-half" data-i18n="abi-acr-half" selected></option>
+								<option value="abi-acr" data-i18n="abi-acr"></option>
+								<option value="skl-wpn-light" data-i18n="skl-wpn-light"></option>
+								<option value="skl-wpn-heavy" data-i18n="skl-wpn-heavy"></option>
+							</select>
+							<input type="number" name="attr_wpn2" value="0" readonly />
+						</span>
+						<input type="number" name="attr_wpn2-dmg" title="@{wpn2-dmg}" value="0" min="-5" max="20" />
+						<label class="check-box no-text">
+							<input type="checkbox" name="attr_wpn2-str" title="@{wpn2-str}" value="1" />
+							<span></span>
+						</label>
+						<input type="number" name="attr_wpn2-def" title="@{wpn2-def}" value="0" min="0" max="5" />
+						<input type="text" name="attr_wpn2-spec" title="@{wpn2-spec}" data-i18n-placeholder="wpn-spec-pl" />
+						<input type="number" name="attr_wpn2-enc" title="@{wpn2-enc}" value="0" min="0" max="10" />
+					</div>
+					<div class="merge-inputs">
+						<div class="button-box">
+							<button type="action" name="act_wpn3" title="%{wpn3}" data-i18n="wpn3-lbl"></button>
+							<button type="action" name="act_wpn3-def" title="%{wpn3-def}" data-i18n="wpn-parry"></button>
+						</div>
+						<input type="text" name="attr_wpn3-name" title="@{wpn3-name}" data-i18n-placeholder="wpn-name-pl" />
+						<span class="select-box">
+							<select name="attr_wpn3-sel" title="@{wpn3}">
+								<option value="abi-acr-half" data-i18n="abi-acr-half" selected></option>
+								<option value="abi-acr" data-i18n="abi-acr"></option>
+								<option value="skl-wpn-light" data-i18n="skl-wpn-light"></option>
+								<option value="skl-wpn-heavy" data-i18n="skl-wpn-heavy"></option>
+							</select>
+							<input type="number" name="attr_wpn3" value="0" readonly />
+						</span>
+						<input type="number" name="attr_wpn3-dmg" title="@{wpn3-dmg}" value="0" min="-5" max="20" />
+						<label class="check-box no-text">
+							<input type="checkbox" name="attr_wpn3-str" title="@{wpn3-str}" value="1" />
+							<span></span>
+						</label>
+						<input type="number" name="attr_wpn3-def" title="@{wpn3-def}" value="0" min="0" max="5" />
+						<input type="text" name="attr_wpn3-spec" title="@{wpn3-spec}" data-i18n-placeholder="wpn-spec-pl" />
+						<input type="number" name="attr_wpn3-enc" title="@{wpn3-enc}" value="0" min="0" max="10" />
+					</div>
+					<div>
+						<small></small>
+						<small></small>
+						<small><abbr data-i18n="wpn-cbt-abbr" data-i18n-title="wpn-cbt"></abbr></small>
+						<small><abbr data-i18n="wpn-dmg-abbr" data-i18n-title="wpn-dmg"></abbr></small>
+						<small data-i18n="wpn-str"></small>
+						<small><abbr data-i18n="wpn-mun-abbr" data-i18n-title="wpn-mun"></abbr></small>
+						<small data-i18n="wpn-rng"></small>
+						<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_wpn4" title="%{wpn4}" data-i18n="wpn4-lbl"></button>
+						</div>
+						<input type="text" name="attr_wpn4-name" title="@{wpn4-name}" data-i18n-placeholder="wpn-name-pl" />
+						<input type="number" name="attr_wpn4" title="@{wpn4}" value="0" readonly />
+						<input type="number" name="attr_wpn4-dmg" title="@{wpn4-dmg}" value="0" min="-5" max="20" />
+						<label class="check-box no-text">
+							<input type="checkbox" name="attr_wpn4-str" title="@{wpn4-str}" value="1" />
+							<span></span>
+						</label>
+						<input type="number" name="attr_wpn4-mun" title="@{wpn4-mun}" value="0" min="0" max="99" />
+						<div class="number-box border">
+							<input type="number" name="attr_wpn4-rng1" title="@{wpn4-rng1}" value="0" min="0" max="999" />
+							<span>/</span>
+							<input type="number" name="attr_wpn4-rng2" title="@{wpn4-rng2}" value="0" min="0" max="999" />
+							<span>/</span>
+							<input type="number" name="attr_wpn4-rng3" title="@{wpn4-rng3}" value="0" min="0" max="999" />
+						</div>
+						<input type="number" name="attr_wpn4-enc" title="@{wpn4-enc}" value="0" min="0" max="10" />
+					</div>
+					<div>
+						<small></small>
+						<small></small>
+						<small><abbr data-i18n="wpn-cbt-abbr" data-i18n-title="wpn-cbt"></abbr></small>
+						<small><abbr data-i18n="wpn-dmg-abbr" data-i18n-title="wpn-dmg"></abbr></small>
+						<small><abbr data-i18n="wpn-rld-abbr" data-i18n-title="wpn-rld"></abbr></small>
+						<small><abbr data-i18n="wpn-mun-abbr" data-i18n-title="wpn-mun"></abbr></small>
+						<small data-i18n="wpn-rng"></small>
+						<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+					</div>
+					<div>
+						<div class="button-box">
+							<button type="action" name="act_wpn5" title="%{wpn5}" data-i18n="wpn5-lbl"></button>
+						</div>
+						<input type="text" name="attr_wpn5-name" title="@{wpn5-name}" data-i18n-placeholder="wpn-name-pl" />
+						<input type="number" name="attr_wpn5" title="@{wpn5}" value="0" readonly />
+						<input type="number" name="attr_wpn5-dmg" title="@{wpn5-dmg}" value="0" min="-5" max="20" />
+						<input type="number" name="attr_wpn5-rld" title="@{wpn5-rld}" value="0" min="0" max="5" />
+						<input type="number" name="attr_wpn5-mun" title="@{wpn5-mun}" value="0" min="0" max="99" />
+						<div class="number-box border">
+							<input type="number" name="attr_wpn5-rng1" title="@{wpn5-rng1}" value="0" min="0" max="999" />
+							<span>/</span>
+							<input type="number" name="attr_wpn5-rng2" title="@{wpn5-rng2}" value="0" min="0" max="999" />
+							<span>/</span>
+							<input type="number" name="attr_wpn5-rng3" title="@{wpn5-rng3}" value="0" min="0" max="999" />
+						</div>
+						<input type="number" name="attr_wpn5-enc" title="@{wpn5-enc}" value="0" min="0" max="10" />
+					</div>
+				</div>
+			</div>
+
+			<div class="two-columns col-1-1">
+
+				<div>
+
+					<!-- ARMOR AND SHIELD -->
+					<div class="armor-shield section border">
+						<h4 data-i18n="armor-and-shield"></h4>
+						<div>
+							<div>
+								<small></small>
+								<small></small>
+								<small><abbr data-i18n="arm-prot-abbr" data-i18n-title="arm-prot"></abbr></small>
+								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+							</div>
+							<div>
+								<div class="button-box">
+									<button type="action" name="act_arm" title="%{arm}" data-i18n="arm-lbl"></button>
+								</div>
+								<input type="text" name="attr_arm-name" title="@{arm-name}" data-i18n-placeholder="arm-name-pl" />
+								<input type="text" name="attr_arm" class="number" title="@{arm}" placeholder="2D+1" />
+								<input type="number" name="attr_arm-enc" title="@{arm-enc}" value="0" min="0" max="10" />
+							</div>
+							<div>
+								<small></small>
+								<small></small>
+								<small><abbr data-i18n="def-abbr" data-i18n-title="def"></abbr></small>
+								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+							</div>
+							<div>
+								<label data-i18n="shd-lbl"></label>
+								<input type="text" name="attr_shd-name" title="@{shd-name}" data-i18n-placeholder="shd-name-pl" />
+								<input type="number" name="attr_shd-def" title="@{shd-def}" value="0" min="0" max="5" />
+								<input type="number" name="attr_shd-enc" title="@{shd-enc}" value="0" min="0" max="10" />
+							</div>
+						</div>
+					</div>
+
+					<!-- SURVIVAL GEAR -->
+					<div class="survival-gear section border">
+						<h4 data-i18n="survival-gear"></h4>
+						<div>
+							<div>
+								<small></small>
+								<small></small>
+								<small><abbr data-i18n="qtt-abbr" data-i18n-title="qtt"></abbr></small>
+								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+							</div>
+							<div>
+								<label data-i18n="danger-hunger"></label>
+								<input type="text" name="attr_food-name" title="@{food-name}" data-i18n-placeholder="gear-food-pl" />
+								<input type="number" name="attr_food-qtt" title="@{food-qtt}" value="0" min="0" max="999" />
+								<input type="number" name="attr_food-enc" title="@{food-enc}" value="0" min="0" max="10" />
+							</div>
+							<div class="merge-inputs">
+								<label data-i18n="danger-thirst"></label>
+								<input type="text" name="attr_drink-name" title="@{drink-name}" data-i18n-placeholder="gear-drink-pl" />
+								<input type="number" name="attr_drink-qtt" title="@{drink-qtt}" value="0" min="0" max="999" />
+								<input type="number" name="attr_drink-enc" title="@{drink-enc}" value="0" min="0" max="10" />
+							</div>
+							<div>
+								<small></small>
+								<small></small>
+								<small data-i18n="gear-lvl"></small>
+								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+							</div>
+							<div>
+								<label data-i18n="danger-cold"></label>
+								<input type="text" name="attr_cloth-name" title="@{cloth-name}" data-i18n-placeholder="gear-cloth-pl" />
+								<input type="number" name="attr_cloth-lvl" title="@{cloth-lvl}" value="1" min="1" max="3" />
+								<input type="number" name="attr_cloth-enc" title="@{cloth-enc}" value="0" min="0" max="10" />
+							</div>
+							<div class="merge-inputs">
+								<label data-i18n="danger-wind"></label>
+								<input type="text" name="attr_filter-name" title="@{filter-name}" data-i18n-placeholder="gear-filter-pl" />
+								<input type="number" name="attr_filter-lvl" title="@{filter-lvl}" value="1" min="1" max="3" />
+								<input type="number" name="attr_filter-enc" title="@{filter-enc}" value="0" min="0" max="10" />
+							</div>
+							<div class="merge-inputs">
+								<label data-i18n="danger-darkness"></label>
+								<input type="text" name="attr_light-name" title="@{light-name}" data-i18n-placeholder="gear-light-pl" />
+								<input type="number" name="attr_light-lvl" title="@{light-lvl}" value="1" min="1" max="3" />
+								<input type="number" name="attr_light-enc" title="@{light-enc}" value="0" min="0" max="10" />
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- EQUIPMENT -->
+				<div class="equipment section">
+					<h4 data-i18n="equipment"></h4>
+					<div>
+						<div class="grid-row">
+							<small></small>
+							<small><abbr data-i18n="qtt-abbr" data-i18n-title="qtt"></abbr></small>
+							<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
+						</div>
+						<fieldset class="repeating_items">
+							<div class="grid-row">
+								<input type="text" name="attr_name" title="@{repeating_items_$X_name}" data-i18n-placeholder="eqp-name-pl" />
+								<input type="number" name="attr_qtt" title="@{repeating_items_$X_qtt}" value="0" min="0" max="999" />
+								<input type="number" name="attr_enc" title="@{repeating_items_$X_enc}" value="0" min="0" max="10" />
+							</div>
+						</fieldset>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- FOOTER -->
+	<div class="footer">
+		<p data-i18n="legal"></p>
+		<span class="version">v<span name="attr_sheet-version"></span></span>
+	</div>
+
+</div>

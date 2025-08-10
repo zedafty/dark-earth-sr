@@ -1,0 +1,18 @@
+<!-- SHEET TEMPLATE -->
+<rolltemplate class="sheet-rolltemplate-result">
+	<div class="wrapper{{#type}} {{type}}{{/type}}">
+		{{#overburdened}}<div class="condition overburdened" data-i18n-title="cond-overburdened">O</div>{{/overburdened}}
+		{{#encumbered}}<div class="condition encumbered" data-i18n-title="cond-encumbered">O</div>{{/encumbered}}
+		{{#dying}}<div class="condition dying" data-i18n-title="cond-dying">Y</div>{{/dying}}
+		{{#wounded}}<div class="condition wounded" data-i18n-title="cond-wounded">Y</div>{{/wounded}}
+		{{#exhausted}}<div class="condition exhausted" data-i18n-title="cond-exhausted">d</div>{{/exhausted}}
+		{{#char}}<div class="header">{{char}}</div>{{/char}}
+		<div class="content">
+			{{#name}}<div class="title">{{name}}</div>{{/name}}
+			<div class="values"><span data-i18n="roll-base"></span> {{base}}<span data-i18n="roll-die-suffix"></span>{{#^rollTotal() val 0}}{{#rollGreater() val -1}}+{{/rollGreater() val -1}}{{val}}{{/^rollTotal() val 0}}{{#^rollTotal() mod 0}} • <span data-i18n="roll-mod"></span> {{#rollGreater() mod -1}}+{{/rollGreater() mod -1}}{{mod}}<span data-i18n="roll-die-suffix"></span>{{/^rollTotal() mod 0}}</div>
+			<div class="result"><span>{{computed::roll}}</span></div>
+			{{#dmg}}<div class="damage"><span data-i18n="roll-damages"></span> {{#rollGreater() dmg -1}}+{{/rollGreater() dmg -1}}{{dmg}}</div>{{/dmg}}
+			{{#spec}}<div class="special">{{spec}}</div>{{/spec}}
+		</div>
+	</div>
+</rolltemplate>

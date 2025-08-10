@@ -1,0 +1,121 @@
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Rolltemplates */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.sheet-rolltemplate-result .sheet-wrapper {
+	position: relative;
+	text-align: center;
+	font-size: 13px;
+	font-family: serif;
+	color: #999;
+	border: 1px solid #222;
+	background-color: #222;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-black-small.jpg");
+	background-position: 0 0;
+	background-repeat: repeat-y;
+	background-size: 400px;
+}
+
+.sheet-rolltemplate-result .sheet-wrapper .inlinerollresult,
+.sheet-rolltemplate-result .sheet-wrapper .inlinerollresult.fullcrit,
+.sheet-rolltemplate-result .sheet-wrapper .inlinerollresult.fullfail,
+.sheet-rolltemplate-result .sheet-wrapper .inlinerollresult.importantroll {
+	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	border: none;
+	background-color: transparent;
+}
+
+.sheet-rolltemplate-result .sheet-condition {
+	display: inline-block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	right: 4px;
+	top: 4px;
+	font-size: 16px;
+	font-family: "Pictos";
+	color: #000;
+	border-radius: 2px;
+	opacity: .875;
+}
+.sheet-rolltemplate-result .sheet-condition:hover {
+	cursor: help;
+}
+.sheet-rolltemplate-result .sheet-condition:nth-of-type(2) {right: 28px;}
+.sheet-rolltemplate-result .sheet-condition:nth-of-type(3) {right: 52px;}
+.sheet-rolltemplate-result .sheet-condition:nth-of-type(4) {right: 76px;}
+.sheet-rolltemplate-result .sheet-condition:nth-of-type(5) {right: 100px;}
+.sheet-rolltemplate-result .sheet-condition.sheet-exhausted,
+.sheet-rolltemplate-result .sheet-condition.sheet-wounded,
+.sheet-rolltemplate-result .sheet-condition.sheet-encumbered {
+	background-color: #fd2;
+}
+.sheet-rolltemplate-result .sheet-condition.sheet-dying,
+.sheet-rolltemplate-result .sheet-condition.sheet-overburdened {
+	background-color: #d36;
+}
+
+.sheet-rolltemplate-result .sheet-header {
+	height: 28px;
+	line-height: 34px;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "IM Fell English SC";
+	color: #fff;
+	border-bottom: 1px solid #000;
+	background-color: #0009;
+}
+.sheet-rolltemplate-result .sheet-pc .sheet-header {
+	background-color: #4769;
+}
+.sheet-rolltemplate-result .sheet-npc .sheet-header {
+	background-color: #6449;
+}
+
+.sheet-rolltemplate-result .sheet-content {
+	padding: 4px;
+}
+
+.sheet-rolltemplate-result .sheet-title {
+	line-height: 24px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ccc;
+}
+
+.sheet-rolltemplate-result .sheet-values {
+	font-size: 12px;
+}
+
+.sheet-rolltemplate-result .sheet-result {
+	margin: 4px 0;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: "Playpen Sans";
+	color: #eee;
+}
+.sheet-rolltemplate-result .sheet-result > span {
+	display: inline-block;
+	padding: 6px;
+	border: 1px solid #8649;
+	border-radius: 3px;
+	background-color: #0006;
+}
+
+.sheet-rolltemplate-result .sheet-damage {
+	font-size: 14px;
+	font-weight: bold;
+	color: #c24;
+}
+
+.sheet-rolltemplate-result .sheet-special {
+	font-size: 11px;
+	font-style: italic;
+	color: #666;
+}

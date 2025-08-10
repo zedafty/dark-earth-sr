@@ -1,0 +1,1621 @@
+/* Dark Earth (Simplified Rules) Character Sheet CSS */
+/* Coding by Zedafty */
+/* Version 1.00 */
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Character Sheet */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.charsheet {
+	padding: 0 !important;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Page */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.page {
+	position: relative;
+	min-width: 800px;
+	min-height: 100vh;
+	padding: 10px;
+	font-family: serif;
+}
+.page::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.page > div {
+	position: relative;
+}
+.page *::selection {
+	color: #fff;
+	background-color: #c24;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Headers */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.page h4 {
+	color: #000;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Mark-ups */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.page abbr {
+	text-decoration: 1px underline dotted #6669;
+	border-bottom: 0;
+}
+.page small {
+	color: inherit;
+	font-size: 0.85em;
+	line-height: 1.2;
+	text-align: center;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Inputs */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.page select,
+.page textarea,
+.page input[type="text"],
+.page input[type="number"] {
+	margin: 0;
+	color: #000;
+	font-size: 13px;
+	font-family: "Playpen Sans";
+	border: 0;
+	border-radius: 0;
+	background-color: transparent;
+}
+.page select,
+.page textarea,
+.page input[type="text"] {
+	width: 100%;
+	padding: 0 4px;
+}
+.page select,
+.page input[type="text"],
+.page input[type="number"] {
+	border-bottom: 1px dotted #000;
+}
+.page select {
+	appearance: none;
+	height: auto;
+}
+.page textarea {
+	height: auto;
+	line-height: 18px;
+	font-size: 13px;
+	resize: none;
+}
+.page input[type="text"]::placeholder {
+	color: #6666;
+	font-style: italic;
+	opacity: 1;
+}
+.page input[type="number"] {
+	-moz-appearance: textfield;
+	padding: 0;
+	text-align: center;
+}
+.charsheet .page input[type="number"] { /* Roll20 charsheet.css*/
+	width: 100%;
+}
+.page input[type="number"]::-webkit-inner-spin-button,
+.page input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+.page input[type="text"][readonly],
+.page input[type="number"][readonly] {
+	cursor: default;
+}
+.page select:focus,
+.page textarea:focus,
+.page input[type="text"]:focus,
+.page input[type="number"]:focus,
+.page input[type="radio"]:focus,
+.page input[type="checkbox"]:focus,
+.page button[type="roll"]:focus,
+.page button[type="action"]:focus {
+	outline: 0;
+}
+.page input[type="text"][readonly]:focus,
+.page input[type="number"][readonly]:focus {
+	background-color: #4446;
+}
+.page select:not([readonly]):not([disabled]):focus,
+.page textarea:not([readonly]):not([disabled]):focus,
+.page input[type="text"]:not([readonly]):not([disabled]):focus,
+.page input[type="number"]:not([readonly]):not([disabled]):focus {
+	background-color: #c246;
+}
+.page select:not([readonly]):not([disabled]):hover,
+.page textarea:not([readonly]):not([disabled]):hover,
+.page input[type="text"]:not([readonly]):not([disabled]):hover,
+.page input[type="number"]:not([readonly]):not([disabled]):hover {
+	background-color: #c243;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Buttons */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.charsheet .page button[type="roll"] { /* Roll20 charsheet.css*/
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+}
+.charsheet .page button[type="roll"]::before { /* Roll20 charsheet.css*/
+	display: none;
+}
+.page button[type="roll"],
+.page button[type="action"] {
+	padding: 0 2px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #000;
+	border: 0;
+	border-radius: 4px;
+	background: none;
+	vertical-align: top;
+}
+.page button[type="roll"] {
+	box-shadow: none;
+	text-shadow: none;
+}
+.page button[type="action"] {
+	font-size: 13px;
+}
+.page button[type="roll"]:hover,
+.page button[type="action"]:hover {
+	color: #c24;
+}
+.page button[type="roll"]:focus,
+.page button[type="action"]:focus {
+	background-color: #c246;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Labels */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.page label {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 13px;
+	font-weight: normal;
+}
+.page label[for]:hover {
+	cursor: pointer;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Select Boxes */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.select-box {
+	position: relative;
+}
+.select-box > select {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.select-box > select:focus + input[type="number"] {
+	background-color: #c246;
+}
+.select-box > select:hover + input[type="number"] {
+	background-color: #c243;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Number Boxes */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.number-box {
+	display: inline-block;
+	text-align: center;
+}
+.number-box.border {
+	border: 1px solid #000;
+	background-color: #fff;
+}
+.number-box > span {
+	display: inline-block;
+	width: 10px;
+	line-height: 22px;
+	vertical-align: top;
+}
+.number-box > small {
+	display: inline-block;
+	width: 28px;
+	vertical-align: top;
+}
+.number-box > small + span {
+	font-size: 0.85em;
+	line-height: 1.2;
+}
+.page .number-box input[type="number"] {
+	width: 28px;
+}
+.page .number-box.border input[type="number"] {
+	border: 0;
+	height: 21px;
+}
+.number-box.border > span {
+	width: 8px;
+	line-height: 21px;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Check Boxes */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.check-box {
+	user-select: none;
+	display: inline-block;
+	position: relative;
+	width: auto;
+	line-height: 20px;
+}
+.check-box > input[type="checkbox"] {
+	appearance: none;
+	display: inline-block;
+	position: absolute;
+	width: 18px;
+	height: inherit;
+	left: 0;
+	top: 0;
+	border: 0;
+	background: none;
+}
+.check-box > span {
+	display: inline-block;
+	position: relative;
+	padding: 0 6px 0 3px;
+	line-height: 20px;
+	font-weight: bold;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+.check-box > span::before,
+.check-box > span::after {
+	content: "";
+	display: inline-block;
+	border-radius: 100%;
+	box-sizing: border-box;
+}
+.check-box > span::before {
+	position: relative;
+	width: 12px;
+	height: 12px;
+	top: 4px;
+	margin-right: 4px;
+	vertical-align: top;
+	border: 1px solid #000;
+	background-color: #fff;
+}
+.check-box > span::after {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	left: 6px;
+	top: 7px;
+	background-color: #000;
+	opacity: 0;
+}
+.check-box > input[type="checkbox"]:checked + span::after {
+	opacity: 1;
+}
+.check-box > input[type="checkbox"]:focus + span {
+	background-color: #c246;
+}
+.check-box:hover {
+	cursor: pointer; /* BUG : There is a glitch when overing */
+}
+.check-box:hover > span {
+	color: #c24;
+}
+.check-box:hover > span::before {
+	border-color: #c24;
+}
+.check-box:hover > span::after {
+	background-color: #c24;
+}
+.check-box.no-text {
+	text-align: center;
+}
+.check-box.no-text > input[type="checkbox"] {
+	width: 100%;
+}
+.check-box.no-text > span {
+	width: 100%;
+	height: 22px;
+	padding: 0;
+}
+.check-box.no-text > span::before {
+	margin-right: 0;
+	top: 5px;
+}
+.check-box.no-text > span::after {
+	left: calc(50% - 3px);
+	top: 8px;
+}
+
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Autoexpands */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.page .autoexpand {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #000;
+}
+.page .autoexpand > span,
+.page .autoexpand > textarea {
+	min-height: 18px; /* 2 lines (18*1) */
+	max-height: 108px; /* 6 lines (18*6) */
+	box-sizing: border-box;
+}
+.page .autoexpand > span {
+	display: block;
+	padding: 0 4px;
+	line-height: 18px;
+	font-size: 13px;
+	white-space: pre-wrap;
+	visibility: hidden;
+}
+.page .autoexpand > textarea {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 0;
+	scrollbar-color: #000 #fff;
+	scrollbar-width: thin;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Button Boxes */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.button-box {
+	position: relative;
+	text-align: right;
+}
+.button-box button:nth-child(2) {
+	display: inline-block;
+	position: absolute;
+	left: 100%;
+	top: -1px;
+	width: 0;
+	font-size: 0;
+	border: 1px solid #000;
+	background-color: #fff;
+	box-sizing: border-box;
+	opacity: 0;
+}
+.button-box button:nth-child(1):hover + button,
+.button-box button:nth-child(2):hover,
+.button-box button:nth-child(2):focus {
+	width: auto;
+	padding: 0 5px;
+	font-size: 13px;
+	opacity: 1;
+}
+.button-box button:nth-child(2):focus {
+	background-color: #eab;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Heading */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.heading {
+	display: grid;
+	grid-template-columns: 140px auto;
+	margin-bottom: 10px;
+}
+.logo {
+	position: relative;
+	height: 90px;
+}
+
+.logo span {
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-outline.png");
+	background-repeat: no-repeat;
+	background-position: 0 center;
+	background-size: contain;
+}
+.character-name,
+.character-stats {
+	width: 50%;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+.character-name {
+	display: inline-block;
+	position: relative;
+	margin-top: 12px;
+	padding: 4px 0 4px 12px;
+	border: 1px solid #000;
+	border-right: 0;
+	border-top-left-radius: 24px;
+	border-bottom-left-radius: 24px;
+	background-color: #fff;
+}
+.character-name > input[type="text"] {
+	font-size: 16px;
+	border-bottom: 0;
+}
+.character-name > small {
+	display: inline-block;
+	position: absolute;
+	left: 12px;
+	top: -13px;
+	width: auto;
+	line-height: 12px;
+}
+.character-stats {
+	display: inline-grid;
+	grid-template-columns: 2fr 1fr;
+	grid-column-gap: 5px;
+	padding: 5px;
+	border: 1px solid #000;
+	background-color: #eee;
+}
+.character-stats > div > div {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-column-gap: 5px;
+}
+.character-stats > div > div > label {
+	text-align: right;
+}
+.page .character-stats > div > div > input[type="number"] {
+	width: 32px;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Modbar */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.modbar {
+	display: grid;
+	grid-template-columns: auto max-content max-content 32px;
+	margin-top: 10px;
+	line-height: 24px;
+}
+.modbar .group {
+	display: inline-block;
+	margin: 0 4px;
+}
+.modbar .group label:not(:first-child) {
+	margin-left: -1px;
+}
+.modbar .group label:first-child {
+	border-top-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+}
+.modbar .group label:first-child span {
+	padding-left: 4px;
+}
+.modbar .group label:last-child {
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+.modbar .group label:last-child span {
+	padding-right: 4px;
+}
+.modbar label {
+	user-select: none;
+	position: relative;
+	display: inline-block;
+	width: 34px;
+	height: 24px;
+	text-align: center;
+	vertical-align: top;
+}
+.modbar label input[type="radio"] {
+	appearance: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: inherit;
+	height: inherit;
+	border: 0;
+	background: none;
+}
+.modbar label span {
+	display: inline-block;
+	width: inherit;
+	height: inherit;
+	line-height: 22px;
+	font-weight: bold;
+	border: 1px solid #000;
+	border-radius: inherit;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+.modbar label input[type="radio"]:hover {
+	cursor: pointer;
+}
+.modbar label input[type="radio"]:checked {
+	cursor: default;
+}
+.modbar label input[type="radio"]:focus + span {
+	background-color: #c246;
+}
+.modbar label input[type="radio"]:hover + span {
+	background-color: #c243;
+}
+.modbar label input[type="radio"]:checked + span {
+	color: #fff;
+}
+.modbar .bonus label input[type="radio"]:checked + span {
+	background-color: #476;
+}
+.modbar .malus label input[type="radio"]:checked + span {
+	background-color: #c24;
+}
+.modbar .bonus label input[type="radio"]:checked:focus + span,
+.modbar .malus label input[type="radio"]:checked:focus + span {
+	background-color: #444;
+}
+.modbar input[name="attr_mod-reset-show"][value="0"] + button {
+	display: none;
+}
+.modbar button[name="act_mod-reset"] {
+	margin-left: -4px;
+	font-size: 0;
+	line-height: 24px;
+	vertical-align: top;
+}
+.modbar button[name="act_mod-reset"] > span {
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	border-radius: 3px;
+	vertical-align: top;
+}
+.modbar button[name="act_mod-reset"] > span::before {
+	content: "D";
+	font-size: 14px;
+	font-family: Pictos;
+	vertical-align: inherit;
+}
+.modbar .roller button[name="act_roll"] {
+	padding: 0 6px;
+	height: 24px;
+}
+.modbar .roller input[type="number"] {
+	width: 32px;
+	height: 24px;
+	vertical-align: top;
+}
+.modbar .whisper-toggle,
+.modbar .settings-toggle {
+	display: inline-block;
+}
+.modbar .whisper-toggle input[type="checkbox"],
+.modbar .whisper-toggle input[type="checkbox"] ~ span,
+.modbar .settings-toggle input[type="checkbox"],
+.modbar .settings-toggle input[type="checkbox"] + span {
+	display: inline-block;
+	height: 24px;
+}
+.modbar .whisper-toggle input[type="checkbox"],
+.modbar .settings-toggle input[type="checkbox"] {
+	appearance: none;
+	border: 0;
+	background: none;
+}
+.modbar .whisper-toggle input[type="checkbox"] ~ span,
+.modbar .settings-toggle input[type="checkbox"] + span {
+	text-align: center;
+	border-radius: 3px;
+}
+.modbar .whisper-toggle input[type="checkbox"]:focus ~ span,
+.modbar .settings-toggle input[type="checkbox"]:focus + span {
+	background-color: #c246;
+}
+.modbar .whisper-toggle input[type="checkbox"]:hover ~ span,
+.modbar .settings-toggle input[type="checkbox"]:hover + span {
+	color: #c24;
+}
+.modbar .whisper-toggle {
+	user-select: none;
+	position: relative;
+	height: 24px;
+	vertical-align: top;
+}
+.modbar .whisper-toggle span {
+	padding: 0 4px;
+	font-weight: bold;
+	vertical-align: top;
+}
+.modbar .whisper-toggle span::before {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	font-size: 20px;
+	font-weight: normal;
+	font-family: "Pictos";
+	text-align: center;
+}
+.modbar .whisper-gm::before {
+	content: "w";
+}
+.modbar .whisper-all::before {
+	content: "q";
+}
+.modbar .whisper-toggle input[type="checkbox"] {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+.modbar .whisper-toggle input[type="checkbox"]:checked ~ .whisper-all {
+	display: none;
+}
+.modbar .whisper-toggle input[type="checkbox"]:not(:checked) ~ .whisper-gm {
+	display: none;
+}
+.modbar .settings-toggle input[type="checkbox"],
+.modbar .settings-toggle input[type="checkbox"] + span {
+	width: 24px;
+	vertical-align: top;
+}
+.modbar .settings-toggle input[type="checkbox"] + span {
+	pointer-events: none;
+	margin-left: -24px;
+	line-height: 22px;
+	font-size: 0;
+}
+.modbar .settings-toggle input[type="checkbox"] + span::before {
+	font-size: 20px;
+	font-family: "Pictos";
+}
+.modbar .settings-toggle input[type="checkbox"] + span::before {
+	content: "x";
+}
+.modbar .settings-toggle input[type="checkbox"]:checked + span::before {
+	content: "D";
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Settings */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
+	display: flex;
+}
+.settings {
+	display: none;
+	position: relative;
+	justify-content: start;
+	align-items: start;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #000;
+	border-radius: 4px;
+	background-color: #eee;
+}
+.settings > div + div {
+	margin-left: 20px;
+}
+.page .settings select {
+	height: 20px;
+}
+.settings .sheet .line {
+	display: grid;
+	grid-template-columns: 64px auto;
+	grid-column-gap: 5px;
+}
+.settings .sheet .recalc {
+	text-align: center;
+}
+.settings .sheet .recalc button[type="action"] {
+	margin-top: 10px;
+	padding: 0 4px;
+	color: #fff;
+	border: 1px solid #000;
+	border-radius: 4px;
+	background: #c24;
+	box-shadow: -1px -1px 0 #0006 inset, 1px 1px 0px #fff6 inset;
+}
+.settings .sheet .recalc button[type="action"]:focus,
+.settings .sheet .recalc button[type="action"]:hover {
+	color: #000;
+}
+.settings .sheet .recalc button[type="action"]:focus {
+	background-color: #c246;
+}
+.settings .sheet .recalc button[type="action"]:hover {
+	background-color: #c243;
+}
+.settings .sheet .recalc button[type="action"]:active {
+	box-shadow: unset;
+}
+.settings .modifiers > div {
+	display: grid;
+	grid-template-columns: auto 32px;
+	grid-column-gap: 5px;
+}
+.settings .modifiers > div:first-child {
+	grid-column: 1/span 2;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Layout */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.two-columns > div {
+	display: inline-block;
+	vertical-align: top;
+}
+.two-columns > div:nth-child(2) {
+	margin-left: 10px;
+}
+.two-columns.col-7-13 > div:nth-child(1) {
+	width: 35%;
+}
+.two-columns.col-7-13 > div:nth-child(2) {
+	width: calc(65% - 10px);
+}
+.two-columns.col-4-1 > div:nth-child(1) {
+	width: 80%;
+}
+.two-columns.col-4-1 > div:nth-child(2) {
+	width: calc(20% - 10px);
+}
+.two-columns.col-1-1 > div:nth-child(1) {
+	width: 50%;
+}
+.two-columns.col-1-1 > div:nth-child(2) {
+	width: calc(50% - 10px);
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Sections */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.section {
+	margin-bottom: 10px;
+}
+.section > h4 {
+	padding: 8px 0 4px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "IM Fell English SC";
+}
+.section.border > h4 {
+	color: #fff;
+	background-color: #000;
+}
+.section.border > div {
+	padding: 0 5px 5px;
+	border: 1px solid #000;
+	border-top: 0;
+	background-color: #fff9;
+}
+.section.border.padding-top > div {
+	padding-top: 5px;
+}
+.section label,
+.section select,
+.section input[type="text"] {
+	height: 22px;
+	line-height: 22px;
+}
+.section.border input[type="number"],
+.section.border input[type="text"].number {
+	height: 23px; /* WARNING */
+	border: 1px solid #000;
+	background-color: #fff;
+}
+.section.border input[type="text"].number {
+	text-align: center;
+}
+.section.border button[type="action"] {
+	margin-top: 1px;
+}
+.section > div .merge-inputs {
+	margin-top: -1px;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Abilities */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.abilities > div {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-auto-flow: column;
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+}
+.abilities > div > div {
+	display: grid;
+	grid-template-columns: auto 40px;
+}
+.abilities > div > div > div {
+	grid-column-start: 1;
+}
+.abilities small {
+	display: block;
+	text-align: center;
+	font-style: italic;
+	line-height: 1;
+}
+.page .abilities input[type="number"] {
+	height: 32px;
+	font-size: 16px;
+	align-self: end;
+}
+.abilities .button-box {
+	text-align: center;
+}
+.abilities .button-box::after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	right: -20px;
+	bottom: -2px;
+	width: 50%;
+	height: 10px;
+	border: 1px solid #000;
+	border-left-width: 0;
+	border-bottom-width: 0;
+}
+.abilities .button-box button[type="action"] {
+	position: relative;
+	font-size: 18px;
+	font-variant: small-caps;
+}
+.abilities .button-box button[type="action"] span {
+	position: relative;
+	padding: 0 4px;
+	background-color: #fff; /* WARNING */
+	z-index: 1;
+}
+.abilities .button-box button[type="action"]:focus span {
+	background-color: #c246;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Skills */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.skills > div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+}
+.skills > div > div > div:not(.autoexpand) {
+	display: grid;
+	grid-template-columns: 1fr 32px;
+}
+.skills label {
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+.page .skills button[type="action"]::before {
+	content: "•";
+	margin: 0px 4px;
+}
+
+.skills > div > div:nth-child(5) {
+	
+}
+.skills > div > div:nth-child(6) {
+	grid-column-start: 1;
+	grid-row-start: 3;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Resources and Values */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.resources-values > div {
+	display: grid;
+	grid-template-columns: max-content auto;
+}
+.resources-values > div > div {
+	display: grid;
+	grid-column-gap: 5px;
+	justify-items: start;
+	line-height: 1;
+}
+.resources-values > div > div:nth-child(1) {
+	grid-template-columns: max-content auto;
+}
+.resources-values > div > div:nth-child(2) {
+	grid-template-columns: max-content auto;
+}
+.resources-values > div > div > label {
+	text-align: right;
+}
+.resources-values > div > div > .button-box {
+	justify-self: end;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Weapons */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.weapons > div > div {
+	display: grid;
+	grid-template-columns: 60px auto 32px 32px 32px 32px 102px 32px;
+	grid-column-gap: 5px;
+}
+.weapons > div > div > button[type="action"] {
+	text-align: right;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Armor and Shield */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.armor-shield > div > div {
+	display: grid;
+	grid-template-columns: 56px auto 32px 32px;
+	grid-column-gap: 5px;
+}
+.armor-shield > div > div:nth-child(1),
+.armor-shield > div > div:nth-child(2) {
+	grid-template-columns: 56px auto 64px 32px;
+}
+.armor-shield > div > div > label,
+.armor-shield > div > div > button[type="action"] {
+	text-align: right;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Survival Gear */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.survival-gear > div > div {
+	display: grid;
+	grid-template-columns: 56px auto 32px 32px;
+	grid-column-gap: 5px;
+}
+.survival-gear > div > div > label {
+	text-align: right;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Equipment */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.equipment .grid-row {
+	display: grid;
+	grid-template-columns: auto 32px 32px;
+	grid-column-gap: 5px;
+}
+.equipment .grid-row:first-of-type {
+	height: 14px;
+	margin-top: -14px;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Footer */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.footer {
+	position: relative;
+}
+.footer p {
+	margin: 0;
+	font-size: 10px;
+	text-align: center;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Version */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.version {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: -5px;
+	padding: 0 4px 0 4px;
+	line-height: 18px;
+	color: #222;
+	font-size: 11px;
+	font-family: sans-serif;
+	border: 1px solid #111;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: #fff;
+}
+.version::before {
+	content: "^";
+	display: inline-block;
+	position: absolute;
+	left: -20px;
+	top: -1px;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	font-size: 14px;
+	font-family: "Pictos";
+	text-align: center;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	background-color: #111;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Repeating Controllers */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.charsheet .repcontrol .repcontrol_add,
+.charsheet .repcontrol .repcontrol_edit,
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del,
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_move {
+	padding: 0;
+	float: none;
+}
+.charsheet .repcontrol {
+	position: relative;
+	height: 32px;
+}
+.charsheet .repcontrol .repcontrol_add,
+.charsheet .repcontrol .repcontrol_edit {
+	position: absolute;
+	top: 5px;
+	width: 24px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 0;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	text-shadow: none;
+	box-shadow: none;
+}
+.charsheet .repcontrol .repcontrol_add {
+	left: 28px;
+}
+.charsheet .repcontrol .repcontrol_edit {
+	left: 0;
+}
+.charsheet .repcontrol .repcontrol_add::before,
+.charsheet .repcontrol .repcontrol_edit::before {
+	display: inline-block;
+	width: inherit;
+	height: inherit;
+	height: inherit;
+	font-size: 14px;
+	font-family: "Pictos";
+	border: 1px solid #4446;
+	border-radius: inherit;
+	background-color: #fff6;
+	box-sizing: border-box;
+}
+.charsheet .repcontrol .repcontrol_add::before {
+	content: "&";
+}
+.charsheet .repcontrol .repcontrol_edit::before {
+	content: "W";
+}
+.charsheet .repcontrol .repcontrol_add:hover::before,
+.charsheet .repcontrol .repcontrol_edit:hover::before {
+	color: #fff;
+	background-color: #b23;
+	opacity: 1;
+}
+.charsheet .editmode + .repcontrol .repcontrol_edit::before {
+	color: #312;
+	background-color: #fd0;
+}
+.charsheet .repcontrol .repcontrol_add:focus,
+.charsheet .repcontrol .repcontrol_edit:focus {
+	outline: 0;
+}
+.charsheet .repcontrol .repcontrol_add:focus::before,
+.charsheet .repcontrol .repcontrol_edit:focus::before {
+	color: #312;
+	background-color: #ffac;
+	opacity: 1;
+}
+.charsheet .repcontainer {
+	position: relative
+}
+.charsheet .repcontainer .repitem {
+	overflow: hidden;
+}
+.charsheet .repcontainer .repitem .itemcontrol {
+	z-index: 7;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del,
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_move {
+	position: absolute;
+	text-shadow: none;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	top: 0;
+	font-size: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del {
+	justify-content: center;
+	width: 28px;
+	right: 0;
+	height: 100%;
+	z-index: 4;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_move {
+	justify-content: start;
+	width: 100%;
+	left: 0;
+	background-color: #fff9;
+	z-index: 3;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_move:hover {
+	background-color: #ff06;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del::before {
+	content: "#";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 16px;
+	font-weight: normal;
+	border-radius: 3px;
+	border: 1px solid #4446;
+	background-color: #b23;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_move::before {
+	content: "`";
+	display: inline-block;
+	margin-left: 2px;
+	padding: 0 2px;
+	font-size: 16px;
+	font-family: "Pictos";
+	color: #fff;
+	border-radius: 3px;
+	border: 1px solid #4446;
+	background-color: #685;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_move:hover::before {
+	color: #312;
+	background-color: #fd0;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del:hover::before,
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del:focus::before {
+	background-color: #fd0;
+	color: #111;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del:focus {
+	outline: 0;
+}
+.charsheet .repcontainer .repitem .itemcontrol .repcontrol_del:active {
+	box-shadow: none;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Theme Light */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.theme[value="light"] ~ .page {
+	border: 1px solid #999;
+	background-color: #ccc;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/page-banner.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-left.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-right.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-white.jpg");
+	background-position: -60px -10px, left 0, right 0,0 0;
+	background-repeat: no-repeat, repeat-y, repeat-y, repeat-y;
+	background-size: 210px, 60px, 60px, 100%;
+}
+.theme[value="light"] ~ .page::before {
+	background-color: #fff9;
+}
+.theme[value="light"] ~ .page .logo span {
+	left: -5px;
+	top: -5px;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-gray.png");
+}
+
+/* Colors */
+.theme[value="light"] ~ .page,
+.theme[value="light"] ~ .page h4,
+.theme[value="light"] ~ .page label {
+	color: #333;
+}
+.theme[value="light"] ~ .page select,
+.theme[value="light"] ~ .page input[type="text"],
+.theme[value="light"] ~ .page input[type="number"],
+.theme[value="light"] ~ .page button[type="roll"]:not(:hover):not(:focus),
+.theme[value="light"] ~ .page button[type="action"]:not(:hover):not(:focus) {
+	color: #222;
+}
+.theme[value="light"] ~ .page .section.border > h4,
+.theme[value="light"] ~ .page .settings .sheet .recalc button[type="action"]:not(:hover):not(:focus) {
+	color: #eee;
+}
+
+/* Border */
+.theme[value="light"] ~ .page select,
+.theme[value="light"] ~ .page input[type="text"],
+.theme[value="light"] ~ .page input[type="number"],
+.theme[value="light"] ~ .page .autoexpand,
+.theme[value="light"] ~ .page .modbar label span,
+.theme[value="light"] ~ .page .settings,
+.theme[value="light"] ~ .page .character-name,
+.theme[value="light"] ~ .page .character-stats,
+.theme[value="light"] ~ .page .check-box:not(:hover) > span::before,
+.theme[value="light"] ~ .page .number-box.border,
+.theme[value="light"] ~ .page .section.border > div,
+.theme[value="light"] ~ .page .section.border input[type="number"],
+.theme[value="light"] ~ .page .section.border input[type="text"].number,
+.theme[value="light"] ~ .page .abilities .button-box::after {
+	border-color: #666;
+}
+
+/* Backgrounds */
+.theme[value="light"] ~ .page .character-name,
+.theme[value="light"] ~ .page .modbar label input:not(:checked):not(:hover):not(:focus) + span,
+.theme[value="light"] ~ .page .check-box > span::before,
+.theme[value="light"] ~ .page .number-box.border,
+.theme[value="light"] ~ .page .section.border input[type="number"][readonly],
+.theme[value="light"] ~ .page .section.border input[type="number"]:not(:hover):not(:focus),
+.theme[value="light"] ~ .page .section.border input[type="text"].number:not(:hover):not(:focus) {
+	background-color: #fff9;
+}
+.theme[value="light"] ~ .page .section.border > div {
+	background-color: #fff6;
+}
+.theme[value="light"] ~ .page .settings,
+.theme[value="light"] ~ .page .character-stats {
+	background-color: #ccc9;
+}
+.theme[value="light"] ~ .page .check-box:not(:hover) > span::after,
+.theme[value="light"] ~ .page .section.border > h4 {
+	background-color: #0009;
+}
+.theme[value="light"] ~ .page .number-box.border input[type="number"]:not(:hover):not(:focus),
+.theme[value="light"] ~ .page .abilities .button-box button[type="action"] span {
+	background-color: transparent;
+}
+
+/* Width */
+.theme[value="light"] ~ .page .abilities .button-box::after {
+	width: 25%;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Theme Dark */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.theme[value="dark"] ~ .page {
+	border: 1px solid #111;
+	background-color: #ccc;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/page-banner.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-left.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-right.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-black.jpg");
+	background-position: -60px -10px, left 0, right 0,0 0;
+	background-repeat: no-repeat, repeat-y, repeat-y, repeat-y;
+	background-size: 210px, 60px, 60px, 100%;
+}
+.theme[value="dark"] ~ .page::before {
+	background-color: #2229;
+}
+.theme[value="dark"] ~ .page .logo span {
+	left: -5px;
+	top: -5px;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-render.png");
+}
+
+/* Colors */
+.theme[value="dark"] ~ .page,
+.theme[value="dark"] ~ .page label {
+	color: #777;
+}
+.theme[value="dark"] ~ .page h4,
+.theme[value="dark"] ~ .page select,
+.theme[value="dark"] ~ .page textarea,
+.theme[value="dark"] ~ .page input[type="text"],
+.theme[value="dark"] ~ .page input[type="number"],
+.theme[value="dark"] ~ .page button[type="roll"]:not(:hover),
+.theme[value="dark"] ~ .page button[type="action"]:not(:hover),
+.theme[value="dark"] ~ .page .modbar label span {
+	color: #aaa;
+}
+.theme[value="dark"] ~ .page select option {
+	color: #222;
+}
+.theme[value="dark"] ~ .page .section.border h4 {
+	color: rgb(144,112,64);
+}
+.theme[value="dark"] ~ .page .modbar input[type="radio"]:checked + span,
+.theme[value="dark"] ~ .page .settings .sheet .recalc button[type="action"]:not(:hover):not(:focus) {
+	color: #eee;
+}
+
+/* Scrollbars */
+.theme[value="dark"] ~ .page .autoexpand > textarea {
+	scrollbar-color: #666 transparent;
+}
+
+/* Border */
+.theme[value="dark"] ~ .page select,
+.theme[value="dark"] ~ .page input[type="number"],
+.theme[value="dark"] ~ .page .autoexpand,
+.theme[value="dark"] ~ .page .number-box.border,
+.theme[value="dark"] ~ .page .section.border > div,
+.theme[value="dark"] ~ .page .section.border input[type="number"],
+.theme[value="dark"] ~ .page .section.border input[type="text"].number,
+.theme[value="dark"] ~ .page .abilities .button-box::after {
+	border-color: #8649;
+}
+.theme[value="dark"] ~ .page .modbar label span {
+	border-color: #0009;
+}
+.theme[value="dark"] ~ .page input[type="text"],
+.theme[value="dark"] ~ .page .settings,
+.theme[value="dark"] ~ .page .character-name,
+.theme[value="dark"] ~ .page .character-stats {
+	border-color: #6669;
+}
+.theme[value="dark"] ~ .page .check-box:not(:hover) > span::before {
+	border-color: #666;
+}
+.theme[value="dark"] ~ .page .section.border > h4 {
+	border: 1px solid #8649;
+	border-bottom: 0;
+}
+
+/* Backgrounds */
+.theme[value="dark"] ~ .page .character-name,
+.theme[value="dark"] ~ .page .check-box > span::before,
+.theme[value="dark"] ~ .page .number-box.border,
+.theme[value="dark"] ~ .page .section.border input[type="number"][readonly],
+.theme[value="dark"] ~ .page .section.border input[type="number"]:not(:hover):not(:focus),
+.theme[value="dark"] ~ .page .section.border input[type="text"].number:not(:hover):not(:focus) {
+	background-color: #0003;
+}
+.theme[value="dark"] ~ .page .modbar label input:not(:checked):not(:hover):not(:focus) + span {
+	background-color: #9993;
+}
+.theme[value="dark"] ~ .page .modbar input[type="radio"]:checked + span {
+	background-color: #666;
+}
+.theme[value="dark"] ~ .page .section.border > div {
+	background-color: #0003;
+}
+.theme[value="dark"] ~ .page .settings,
+.theme[value="dark"] ~ .page .character-stats {
+	background-color: #9992;
+}
+.theme[value="dark"] ~ .page .check-box:not(:hover) > span::after {
+	background-color: #666;
+}
+.theme[value="dark"] ~ .page .section.border > h4 {
+	background-color: #0003;
+}
+.theme[value="dark"] ~ .page .number-box.border input[type="number"]:not(:hover):not(:focus),
+.theme[value="dark"] ~ .page .abilities .button-box button[type="action"] span {
+	background-color: transparent;
+}
+.theme[value="dark"] ~ .page .button-box button:nth-child(2):focus {
+	background-color: #623;
+}
+
+/* Width */
+.theme[value="dark"] ~ .page .abilities .button-box::after {
+	width: 25%;
+}
+
+/* Button Boxes */
+.theme[value="dark"] ~ .page .button-box button:nth-child(2) {
+	background-color: #222;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Darkmode */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.sheet-darkmode .page {
+	background-color: #fff;
+}
+.sheet-darkmode .page label {
+	color: #000;
+}
+
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Print */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+@media print {
+
+	@page {
+		size: landscape;
+		margin: 0.5cm;
+	}
+
+	/* Roll20 */
+	html,
+	body,
+	.ui-dialog,
+	.characterviewer,
+	.tab-content,
+	.sheetform,
+	.charactersheet {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+	.ui-dialog {
+		position: inherit !important;
+	}
+	#macrobar,
+	.nav-tabs,
+	.repcontrol {
+		display: none !important;
+	}
+
+	/* Visibility */
+	.page .modbar,
+	.page .settings,
+	.page .version {
+		display: none !important;
+	}
+
+	/* Page */
+	.page {
+		padding: 0 !important;
+		border: 0 !important;
+	}
+	.page::before {
+		content: "";
+	}
+
+	/* Heading */
+	.heading {
+		margin-bottom: 0;
+	}
+	.logo {
+		height: 80px;
+	}
+	.logo span {
+		left: 0 !important;
+		top: 0 !important;
+		background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-outline.png") !important;
+		background-repeat: no-repeat !important;
+		background-size: contain !important;
+	}
+
+	/* Mark-ups */
+	.page abbr {
+		text-decoration: none !important;
+	}
+	.page abbr::after {
+		content: "" !important;
+	}
+
+	/* Inputs */
+	.page input[type="text"]::placeholder {
+		opacity: 0;
+	}
+
+	/* Border */
+	.page select,
+	.page input[type="text"],
+	.page input[type="number"],
+	.page .autoexpand,
+	.page .modbar label span,
+	.page .settings,
+	.page .character-name,
+	.page .character-stats,
+	.page .check-box:not(:hover) > span::before,
+	.page .number-box.border,
+	.page .section.border > div,
+	.page .section.border > h4,
+	.page .section.border input[type="number"],
+	.page .section.border input[type="text"].number,
+	.page .abilities .button-box::after {
+		border-color: #000 !important;
+	}
+
+	/* Elements */
+	.page .check-box > input[type="checkbox"]:checked + span::after {
+		background-color: #000 !important;
+	}
+	.page .section.border > h4 {
+		color: #fff !important;
+		background-color: #000 !important;
+	}
+	.page .abilities .button-box button[type="action"] span {
+		background-color: #fff !important;
+	}
+
+}

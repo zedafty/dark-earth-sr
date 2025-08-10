@@ -1,0 +1,135 @@
+{
+	"html": "dark-earth-sr.html",
+	"css": "dark-earth-sr.css",
+	"authors": "Zedafty",
+	"roll20userid": "8097845",
+	"preview": "dark-earth-sr.jpg",
+	"instructions": "This is a [**Roll20**](https://roll20.net/) character sheet for **Dark Earth** role-playing game co-edited by *Kaliso Entertainment* and *Multisim Editions* (1997-2001). It uses a homebrew set of simplified rules freely inspired from the original game systems of 1st and 2nd editions.",
+	"useroptions" : [
+		{
+			"attribute" : "sheet-type",
+			"displayname" : "Sheet type?",
+			"displaytranslationkey" : "json-sheet-type",
+			"type" : "select",
+			"options" : [
+				"PC|pc",
+				"NPC|npc",
+				"Creature|cre"
+			],
+			"optiontranslationkeys" : [
+				"sheet-type-pc",
+				"sheet-type-npc",
+				"sheet-type-cre"
+			],
+			"default" : "pc",
+			"description" : "Sets the default sheet type. This has basically a cosmetic purpose for chat rolls. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-sheet-type-desc"
+		},
+		{
+			"attribute" : "sheet-theme",
+			"displayname" : "Sheet theme?",
+			"displaytranslationkey" : "json-sheet-theme",
+			"type" : "select",
+			"options" : [
+				"Default|default",
+				"Light|light",
+				"Dark|dark"
+			],
+			"optiontranslationkeys" : [
+				"sheet-theme-default",
+				"sheet-theme-light",
+				"sheet-theme-dark"
+			],
+			"default" : "default",
+			"description" : "Sets the default sheet theme. “Default” is plain black and white original printable sheet, “Light” and “Dark” are graphically enhanced variations of the user interface. Note that this feature isn’t binded to Roll20 Darkmode, and the theme need to be changed manually to attune the color mode. Cette option peut être modifiée plus tard sous la section “Paramètres”.",
+			"descriptiontranslationkey" : "json-sheet-theme-desc"
+		},
+		{
+			"attribute" : "health-mod",
+			"displayname" : "Health modifier",
+			"displaytranslationkey" : "json-health-mod",
+			"type" : "number",
+			"default" : "5",
+			"description" : "Adds this amount to Health points by default. Can be either positive or negative. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-health-mod-desc"
+		},
+		{
+			"attribute" : "energy-mod",
+			"displayname" : "Energy modifier",
+			"displaytranslationkey" : "json-energy-mod",
+			"type" : "number",
+			"default" : "0",
+			"description" : "Adds this amount to Energy points by default. Can be either positive or negative. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-energy-mod-desc"
+		},
+		{
+			"attribute" : "init-mod",
+			"displayname" : "Initiative modifier",
+			"displaytranslationkey" : "json-init-mod",
+			"type" : "number",
+			"default" : "0",
+			"description" : "Adds this amount to Initiative by default. Can be either positive or negative. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-init-mod-desc"
+		},
+		{
+			"attribute" : "enc-mod",
+			"displayname" : "Encumbrance modifier",
+			"displaytranslationkey" : "json-enc-mod",
+			"type" : "number",
+			"default" : "0",
+			"description" : "Adds this amount to allowed Encumbrance by default. Can be either positive or negative. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-enc-mod-desc"
+		},
+		{
+			"attribute" : "mod-autoreset",
+			"displayname" : "Reset roll Bonus/Malus upon roll?",
+			"displaytranslationkey" : "json-mod-autoreset",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the roll Bonus/Malus modifier will be reset upon rolls. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-mod-autoreset-desc"
+		},
+		{
+			"attribute" : "cond-autoset",
+			"displayname" : "Set Conditions automatically?",
+			"displaytranslationkey" : "json-cond-autoset",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the character Conditions will be automatically set when the requirements are met. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-cond-autoset-desc"
+		},
+		{
+			"attribute" : "wpn-str-half",
+			"displayname" : "Half-Strength bonus for damages?",
+			"displaytranslationkey" : "json-wpn-str-half",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, only half the character Strength will be added to melee weapon damages. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-wpn-str-half-desc"
+		},
+		{
+			"attribute" : "wpn-def-shd",
+			"displayname" : "Add shield defense to melee weapons?",
+			"displaytranslationkey" : "json-wpn-def-shd",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the shield defense value will be added to any melee weapon Parry roll. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-wpn-def-shd-desc"
+		},
+		{
+			"attribute" : "whisper-toggle",
+			"displayname" : "Whisper rolls to GM?",
+			"displaytranslationkey" : "json-wgm",
+			"type" : "checkbox",
+			"value" : "1",
+			"description" : "If checked, newly created character sheets will output rolls for the player and the Game Master only. Other players wont’t see the rolls. This option is switchable by clicking on the appropriate toggle on the modifier bar.",
+			"descriptiontranslationkey" : "json-wgm-desc"
+		}
+	],
+	"printable" : true,
+	"legacy" : false
+}
