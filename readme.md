@@ -1,5 +1,5 @@
 # Dark Earth (Simplified Rules)
-![version](https://img.shields.io/badge/version-1.00-green.svg)
+![version](https://img.shields.io/badge/version-1.01-green.svg)
 
 This is a [**Roll20**](https://roll20.net/) character sheet for **Dark Earth** role-playing game co-edited by *Kaliso Entertainment* and *Multisim Editions* (1997-2001). It uses a homebrew set of simplified rules freely inspired from the original game systems of 1st and 2nd editions.
 
