@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			target: {
 				files: {
-					"tmp/1-styles.css": ["src/1-styles.css", "src/2-templates.css"]
+					"tmp/1-styles.css": ["src/1-styles.css", "src/2-themes.css", "src/3-templates.css"]
 				}
 			}
 		},

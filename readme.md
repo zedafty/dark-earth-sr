@@ -15,12 +15,24 @@ This is a [**Roll20**](https://roll20.net/) character sheet for **Dark Earth** r
 * Quick roll
 * Whisper to GM toggle
 * Sheet type (PC, NPC or Creature)
-* Themes (Default, Light and Dark)
+* Themes (Default and Shaded)
+* Darkmode compliance
 * Recalcute button
 * Repeating items
 * Printable sheet
 
 # Changelog
+
+## v1.01 (2025-08-14)
+- Fix autoexpand textarea font and word breaking bugs
+- Fix roll modifier reset not disappearing automatically bug
+- Add hidden attribute for group initiative calling
+- Add checkbox for equipped shield
+- Add description roll template for macros
+- Add visibility sheet option (Skills, Survival Gear, Equipment and Weapons)
+- Add visual styles for Skills having non-zero values
+- Add roll template for Survival Gear summary
+- Bind sheet Dark theme to Roll20 Darkmode
 
 ## v1.00 (2025-08-10)
 - Initial release

@@ -1,0 +1,163 @@
+/* ========================================================================== */
+/* -------------------------------------------------------------------------- */
+/* # Rolltemplates */
+/* -------------------------------------------------------------------------- */
+/* ========================================================================== */
+
+.sheet-rolltemplate-roll .sheet-wrapper,
+.sheet-rolltemplate-desc .sheet-wrapper,
+.sheet-rolltemplate-survival-gear .sheet-wrapper {
+	position: relative;
+	text-align: center;
+	font-size: 13px;
+	font-family: serif;
+	color: #999;
+	border: 1px solid #222;
+	background-color: #222;
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-black-small.jpg");
+	background-position: 0 0;
+	background-repeat: repeat-y;
+	background-size: 400px;
+}
+
+.sheet-rolltemplate-roll .sheet-wrapper .inlinerollresult,
+.sheet-rolltemplate-roll .sheet-wrapper .inlinerollresult.fullcrit,
+.sheet-rolltemplate-roll .sheet-wrapper .inlinerollresult.fullfail,
+.sheet-rolltemplate-roll .sheet-wrapper .inlinerollresult.importantroll,
+.sheet-rolltemplate-desc .sheet-wrapper .inlinerollresult,
+.sheet-rolltemplate-desc .sheet-wrapper .inlinerollresult.fullcrit,
+.sheet-rolltemplate-desc .sheet-wrapper .inlinerollresult.fullfail,
+.sheet-rolltemplate-desc .sheet-wrapper .inlinerollresult.importantroll,
+.sheet-rolltemplate-survival-gear .sheet-wrapper .inlinerollresult,
+.sheet-rolltemplate-survival-gear .sheet-wrapper .inlinerollresult.fullcrit,
+.sheet-rolltemplate-survival-gear .sheet-wrapper .inlinerollresult.fullfail,
+.sheet-rolltemplate-survival-gear .sheet-wrapper .inlinerollresult.importantroll {
+	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	border: none;
+	background-color: transparent;
+}
+
+.sheet-rolltemplate-roll .sheet-condition {
+	display: inline-block;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	right: 4px;
+	top: 4px;
+	font-size: 16px;
+	font-family: "Pictos";
+	color: #000;
+	border-radius: 2px;
+	opacity: .875;
+}
+.sheet-rolltemplate-roll .sheet-condition:hover {
+	cursor: help;
+}
+.sheet-rolltemplate-roll .sheet-condition:nth-of-type(2) {right: 28px;}
+.sheet-rolltemplate-roll .sheet-condition:nth-of-type(3) {right: 52px;}
+.sheet-rolltemplate-roll .sheet-condition:nth-of-type(4) {right: 76px;}
+.sheet-rolltemplate-roll .sheet-condition:nth-of-type(5) {right: 100px;}
+.sheet-rolltemplate-roll .sheet-condition.sheet-exhausted,
+.sheet-rolltemplate-roll .sheet-condition.sheet-wounded,
+.sheet-rolltemplate-roll .sheet-condition.sheet-encumbered {
+	background-color: #fd2;
+}
+.sheet-rolltemplate-roll .sheet-condition.sheet-dying,
+.sheet-rolltemplate-roll .sheet-condition.sheet-overburdened {
+	background-color: #d36;
+}
+
+.sheet-rolltemplate-roll .sheet-header,
+.sheet-rolltemplate-desc .sheet-header,
+.sheet-rolltemplate-survival-gear .sheet-header {
+	height: 28px;
+	line-height: 34px;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "IM Fell English SC";
+	color: #fff;
+	border-bottom: 1px solid #000;
+	background-color: #9996;
+}
+.sheet-rolltemplate-roll .sheet-pc .sheet-header,
+.sheet-rolltemplate-desc .sheet-pc .sheet-header,
+.sheet-rolltemplate-survival-gear .sheet-pc .sheet-header {
+	background-color: #9966;
+}
+.sheet-rolltemplate-roll .sheet-npc .sheet-header,
+.sheet-rolltemplate-desc .sheet-npc .sheet-header,
+.sheet-rolltemplate-survival-gear .sheet-npc .sheet-header {
+	background-color: #8786;
+}
+
+.sheet-rolltemplate-roll .sheet-content,
+.sheet-rolltemplate-desc .sheet-content,
+.sheet-rolltemplate-survival-gear .sheet-content {
+	padding: 4px;
+}
+
+.sheet-rolltemplate-roll .sheet-title,
+.sheet-rolltemplate-desc .sheet-title,
+.sheet-rolltemplate-survival-gear .sheet-title {
+	line-height: 24px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ccc;
+}
+
+.sheet-rolltemplate-roll .sheet-values {
+	font-size: 12px;
+}
+
+.sheet-rolltemplate-roll .sheet-result {
+	margin: 4px 0;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: "Playpen Sans";
+	color: #eee;
+}
+.sheet-rolltemplate-roll .sheet-result > span {
+	display: inline-block;
+	padding: 6px;
+	border: 1px solid #8649;
+	border-radius: 3px;
+	background-color: #0006;
+}
+
+.sheet-rolltemplate-roll .sheet-damage {
+	font-size: 14px;
+	font-weight: bold;
+	color: #c24;
+}
+
+.sheet-rolltemplate-roll .sheet-special {
+	font-size: 11px;
+	font-style: italic;
+	color: #666;
+}
+
+.sheet-rolltemplate-desc .sheet-desc {
+	max-height: 200px;
+	padding-left: 4px;
+	padding-right: 14px;
+	line-height: 16px;
+	font-size: 14px;
+	text-align: justify;
+	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: #ccc9 transparent;
+}
+
+.sheet-rolltemplate-survival-gear .sheet-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.sheet-rolltemplate-survival-gear .sheet-grid > div > div:last-child {
+	font-weight: bold;
+	color: #ccc;
+}

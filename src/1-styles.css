@@ -1,6 +1,6 @@
 /* Dark Earth (Simplified Rules) Character Sheet CSS */
 /* Coding by Zedafty */
-/* Version 1.00 */
+/* Version 1.01 */
 
 /* ========================================================================== */
 /* -------------------------------------------------------------------------- */
@@ -231,10 +231,11 @@
 	opacity: 0;
 }
 .select-box > select:focus + input[type="number"] {
-	background-color: #c246;
+	background-color: #c246 !important;
 }
 .select-box > select:hover + input[type="number"] {
-	background-color: #c243;
+	cursor: pointer;
+	background-color: #c243 !important;
 }
 
 /* ========================================================================== */
@@ -391,6 +392,7 @@
 .page .autoexpand > textarea {
 	min-height: 18px; /* 2 lines (18*1) */
 	max-height: 108px; /* 6 lines (18*6) */
+	word-break: break-word;
 	box-sizing: border-box;
 }
 .page .autoexpand > span {
@@ -398,6 +400,7 @@
 	padding: 0 4px;
 	line-height: 18px;
 	font-size: 13px;
+	font-family: "Playpen Sans";
 	white-space: pre-wrap;
 	visibility: hidden;
 }
@@ -467,7 +470,7 @@
 	height: 100%;
 	left: 0;
 	top: 0;
-	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-outline.png");
+	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-outline-black.png");
 	background-repeat: no-repeat;
 	background-position: 0 center;
 	background-size: contain;
@@ -847,6 +850,15 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 	color: #fff;
 	background-color: #000;
 }
+.section.border > h4 > button[type="roll"] {
+	padding: 0 4px;
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+}
+.section.border > h4 > button[type="roll"]:not(:hover) {
+	color: inherit !important; /* WARNING */
+}
 .section.border > div {
 	padding: 0 5px 5px;
 	border: 1px solid #000;
@@ -964,15 +976,20 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 }
 .page .skills button[type="action"]::before {
 	content: "•";
-	margin: 0px 4px;
-}
-
-.skills > div > div:nth-child(5) {
-	
+	display: inline-block;
+	width: 12px;
+	font-style: normal;
 }
 .skills > div > div:nth-child(6) {
 	grid-column-start: 1;
 	grid-row-start: 3;
+}
+.skills .has-value[value="0"] + button {
+	font-weight: normal;
+	opacity: .75;
+}
+.skills .has-value[value="0"] + button::before {
+	content: " ";
 }
 
 /* ========================================================================== */
@@ -1027,12 +1044,12 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 
 .armor-shield > div > div {
 	display: grid;
-	grid-template-columns: 56px auto 32px 32px;
+	grid-template-columns: 56px auto 64px 32px;
 	grid-column-gap: 5px;
 }
-.armor-shield > div > div:nth-child(1),
-.armor-shield > div > div:nth-child(2) {
-	grid-template-columns: 56px auto 64px 32px;
+.armor-shield > div > div:nth-child(3),
+.armor-shield > div > div:nth-child(4) {
+	grid-template-columns: 56px auto 27px 32px 32px;
 }
 .armor-shield > div > div > label,
 .armor-shield > div > div > button[type="action"] {
@@ -1049,6 +1066,11 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 	display: grid;
 	grid-template-columns: 56px auto 32px 32px;
 	grid-column-gap: 5px;
+}
+.survival-gear > div > div:nth-of-type(1),
+.survival-gear > div > div:nth-of-type(2),
+.survival-gear > div > div:nth-of-type(3) {
+	grid-template-columns: 56px auto 32px 32px 32px;
 }
 .survival-gear > div > div > label {
 	text-align: right;
@@ -1281,341 +1303,18 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 
 /* ========================================================================== */
 /* -------------------------------------------------------------------------- */
-/* # Theme Light */
+/* # Visibility */
 /* -------------------------------------------------------------------------- */
 /* ========================================================================== */
 
-.theme[value="light"] ~ .page {
-	border: 1px solid #999;
-	background-color: #ccc;
-	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/page-banner.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-left.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-right.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-white.jpg");
-	background-position: -60px -10px, left 0, right 0,0 0;
-	background-repeat: no-repeat, repeat-y, repeat-y, repeat-y;
-	background-size: 210px, 60px, 60px, 100%;
-}
-.theme[value="light"] ~ .page::before {
-	background-color: #fff9;
-}
-.theme[value="light"] ~ .page .logo span {
-	left: -5px;
-	top: -5px;
-	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-gray.png");
-}
-
-/* Colors */
-.theme[value="light"] ~ .page,
-.theme[value="light"] ~ .page h4,
-.theme[value="light"] ~ .page label {
-	color: #333;
-}
-.theme[value="light"] ~ .page select,
-.theme[value="light"] ~ .page input[type="text"],
-.theme[value="light"] ~ .page input[type="number"],
-.theme[value="light"] ~ .page button[type="roll"]:not(:hover):not(:focus),
-.theme[value="light"] ~ .page button[type="action"]:not(:hover):not(:focus) {
-	color: #222;
-}
-.theme[value="light"] ~ .page .section.border > h4,
-.theme[value="light"] ~ .page .settings .sheet .recalc button[type="action"]:not(:hover):not(:focus) {
-	color: #eee;
-}
-
-/* Border */
-.theme[value="light"] ~ .page select,
-.theme[value="light"] ~ .page input[type="text"],
-.theme[value="light"] ~ .page input[type="number"],
-.theme[value="light"] ~ .page .autoexpand,
-.theme[value="light"] ~ .page .modbar label span,
-.theme[value="light"] ~ .page .settings,
-.theme[value="light"] ~ .page .character-name,
-.theme[value="light"] ~ .page .character-stats,
-.theme[value="light"] ~ .page .check-box:not(:hover) > span::before,
-.theme[value="light"] ~ .page .number-box.border,
-.theme[value="light"] ~ .page .section.border > div,
-.theme[value="light"] ~ .page .section.border input[type="number"],
-.theme[value="light"] ~ .page .section.border input[type="text"].number,
-.theme[value="light"] ~ .page .abilities .button-box::after {
-	border-color: #666;
-}
-
-/* Backgrounds */
-.theme[value="light"] ~ .page .character-name,
-.theme[value="light"] ~ .page .modbar label input:not(:checked):not(:hover):not(:focus) + span,
-.theme[value="light"] ~ .page .check-box > span::before,
-.theme[value="light"] ~ .page .number-box.border,
-.theme[value="light"] ~ .page .section.border input[type="number"][readonly],
-.theme[value="light"] ~ .page .section.border input[type="number"]:not(:hover):not(:focus),
-.theme[value="light"] ~ .page .section.border input[type="text"].number:not(:hover):not(:focus) {
-	background-color: #fff9;
-}
-.theme[value="light"] ~ .page .section.border > div {
-	background-color: #fff6;
-}
-.theme[value="light"] ~ .page .settings,
-.theme[value="light"] ~ .page .character-stats {
-	background-color: #ccc9;
-}
-.theme[value="light"] ~ .page .check-box:not(:hover) > span::after,
-.theme[value="light"] ~ .page .section.border > h4 {
-	background-color: #0009;
-}
-.theme[value="light"] ~ .page .number-box.border input[type="number"]:not(:hover):not(:focus),
-.theme[value="light"] ~ .page .abilities .button-box button[type="action"] span {
-	background-color: transparent;
-}
-
-/* Width */
-.theme[value="light"] ~ .page .abilities .button-box::after {
-	width: 25%;
-}
-
-/* ========================================================================== */
-/* -------------------------------------------------------------------------- */
-/* # Theme Dark */
-/* -------------------------------------------------------------------------- */
-/* ========================================================================== */
-
-.theme[value="dark"] ~ .page {
-	border: 1px solid #111;
-	background-color: #ccc;
-	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/page-banner.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-left.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-right.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-black.jpg");
-	background-position: -60px -10px, left 0, right 0,0 0;
-	background-repeat: no-repeat, repeat-y, repeat-y, repeat-y;
-	background-size: 210px, 60px, 60px, 100%;
-}
-.theme[value="dark"] ~ .page::before {
-	background-color: #2229;
-}
-.theme[value="dark"] ~ .page .logo span {
-	left: -5px;
-	top: -5px;
-	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-render.png");
-}
-
-/* Colors */
-.theme[value="dark"] ~ .page,
-.theme[value="dark"] ~ .page label {
-	color: #777;
-}
-.theme[value="dark"] ~ .page h4,
-.theme[value="dark"] ~ .page select,
-.theme[value="dark"] ~ .page textarea,
-.theme[value="dark"] ~ .page input[type="text"],
-.theme[value="dark"] ~ .page input[type="number"],
-.theme[value="dark"] ~ .page button[type="roll"]:not(:hover),
-.theme[value="dark"] ~ .page button[type="action"]:not(:hover),
-.theme[value="dark"] ~ .page .modbar label span {
-	color: #aaa;
-}
-.theme[value="dark"] ~ .page select option {
-	color: #222;
-}
-.theme[value="dark"] ~ .page .section.border h4 {
-	color: rgb(144,112,64);
-}
-.theme[value="dark"] ~ .page .modbar input[type="radio"]:checked + span,
-.theme[value="dark"] ~ .page .settings .sheet .recalc button[type="action"]:not(:hover):not(:focus) {
-	color: #eee;
-}
-
-/* Scrollbars */
-.theme[value="dark"] ~ .page .autoexpand > textarea {
-	scrollbar-color: #666 transparent;
-}
-
-/* Border */
-.theme[value="dark"] ~ .page select,
-.theme[value="dark"] ~ .page input[type="number"],
-.theme[value="dark"] ~ .page .autoexpand,
-.theme[value="dark"] ~ .page .number-box.border,
-.theme[value="dark"] ~ .page .section.border > div,
-.theme[value="dark"] ~ .page .section.border input[type="number"],
-.theme[value="dark"] ~ .page .section.border input[type="text"].number,
-.theme[value="dark"] ~ .page .abilities .button-box::after {
-	border-color: #8649;
-}
-.theme[value="dark"] ~ .page .modbar label span {
-	border-color: #0009;
-}
-.theme[value="dark"] ~ .page input[type="text"],
-.theme[value="dark"] ~ .page .settings,
-.theme[value="dark"] ~ .page .character-name,
-.theme[value="dark"] ~ .page .character-stats {
-	border-color: #6669;
-}
-.theme[value="dark"] ~ .page .check-box:not(:hover) > span::before {
-	border-color: #666;
-}
-.theme[value="dark"] ~ .page .section.border > h4 {
-	border: 1px solid #8649;
-	border-bottom: 0;
-}
-
-/* Backgrounds */
-.theme[value="dark"] ~ .page .character-name,
-.theme[value="dark"] ~ .page .check-box > span::before,
-.theme[value="dark"] ~ .page .number-box.border,
-.theme[value="dark"] ~ .page .section.border input[type="number"][readonly],
-.theme[value="dark"] ~ .page .section.border input[type="number"]:not(:hover):not(:focus),
-.theme[value="dark"] ~ .page .section.border input[type="text"].number:not(:hover):not(:focus) {
-	background-color: #0003;
-}
-.theme[value="dark"] ~ .page .modbar label input:not(:checked):not(:hover):not(:focus) + span {
-	background-color: #9993;
-}
-.theme[value="dark"] ~ .page .modbar input[type="radio"]:checked + span {
-	background-color: #666;
-}
-.theme[value="dark"] ~ .page .section.border > div {
-	background-color: #0003;
-}
-.theme[value="dark"] ~ .page .settings,
-.theme[value="dark"] ~ .page .character-stats {
-	background-color: #9992;
-}
-.theme[value="dark"] ~ .page .check-box:not(:hover) > span::after {
-	background-color: #666;
-}
-.theme[value="dark"] ~ .page .section.border > h4 {
-	background-color: #0003;
-}
-.theme[value="dark"] ~ .page .number-box.border input[type="number"]:not(:hover):not(:focus),
-.theme[value="dark"] ~ .page .abilities .button-box button[type="action"] span {
-	background-color: transparent;
-}
-.theme[value="dark"] ~ .page .button-box button:nth-child(2):focus {
-	background-color: #623;
-}
-
-/* Width */
-.theme[value="dark"] ~ .page .abilities .button-box::after {
-	width: 25%;
-}
-
-/* Button Boxes */
-.theme[value="dark"] ~ .page .button-box button:nth-child(2) {
-	background-color: #222;
-}
-
-/* ========================================================================== */
-/* -------------------------------------------------------------------------- */
-/* # Darkmode */
-/* -------------------------------------------------------------------------- */
-/* ========================================================================== */
-
-.sheet-darkmode .page {
-	background-color: #fff;
-}
-.sheet-darkmode .page label {
-	color: #000;
-}
-
-/* ========================================================================== */
-/* -------------------------------------------------------------------------- */
-/* # Print */
-/* -------------------------------------------------------------------------- */
-/* ========================================================================== */
-
-@media print {
-
-	@page {
-		size: landscape;
-		margin: 0.5cm;
-	}
-
-	/* Roll20 */
-	html,
-	body,
-	.ui-dialog,
-	.characterviewer,
-	.tab-content,
-	.sheetform,
-	.charactersheet {
-		padding: 0 !important;
-		margin: 0 !important;
-	}
-	.ui-dialog {
-		position: inherit !important;
-	}
-	#macrobar,
-	.nav-tabs,
-	.repcontrol {
-		display: none !important;
-	}
-
-	/* Visibility */
-	.page .modbar,
-	.page .settings,
-	.page .version {
-		display: none !important;
-	}
-
-	/* Page */
-	.page {
-		padding: 0 !important;
-		border: 0 !important;
-	}
-	.page::before {
-		content: "";
-	}
-
-	/* Heading */
-	.heading {
-		margin-bottom: 0;
-	}
-	.logo {
-		height: 80px;
-	}
-	.logo span {
-		left: 0 !important;
-		top: 0 !important;
-		background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/dark-earth-logo-outline.png") !important;
-		background-repeat: no-repeat !important;
-		background-size: contain !important;
-	}
-
-	/* Mark-ups */
-	.page abbr {
-		text-decoration: none !important;
-	}
-	.page abbr::after {
-		content: "" !important;
-	}
-
-	/* Inputs */
-	.page input[type="text"]::placeholder {
-		opacity: 0;
-	}
-
-	/* Border */
-	.page select,
-	.page input[type="text"],
-	.page input[type="number"],
-	.page .autoexpand,
-	.page .modbar label span,
-	.page .settings,
-	.page .character-name,
-	.page .character-stats,
-	.page .check-box:not(:hover) > span::before,
-	.page .number-box.border,
-	.page .section.border > div,
-	.page .section.border > h4,
-	.page .section.border input[type="number"],
-	.page .section.border input[type="text"].number,
-	.page .abilities .button-box::after {
-		border-color: #000 !important;
-	}
-
-	/* Elements */
-	.page .check-box > input[type="checkbox"]:checked + span::after {
-		background-color: #000 !important;
-	}
-	.page .section.border > h4 {
-		color: #fff !important;
-		background-color: #000 !important;
-	}
-	.page .abilities .button-box button[type="action"] span {
-		background-color: #fff !important;
-	}
-
+input[name="attr_show-skills"][value="0"] ~ .page .skills,
+input[name="attr_show-wpn2"][value="0"] ~ .page .weapons > div > div:nth-child(3),
+input[name="attr_show-wpn3"][value="0"] ~ .page .weapons > div > div:nth-child(4),
+input[name="attr_show-wpn4"][value="0"] ~ .page .weapons > div > div:nth-child(5),
+input[name="attr_show-wpn4"][value="0"] ~ .page .weapons > div > div:nth-child(6),
+input[name="attr_show-wpn5"][value="0"] ~ .page .weapons > div > div:nth-child(7),
+input[name="attr_show-wpn5"][value="0"] ~ .page .weapons > div > div:nth-child(8),
+input[name="attr_show-survival-gear"][value="0"] ~ .page .survival-gear,
+input[name="attr_show-equipment"][value="0"] ~ .page .equipment {
+	display: none;
 }

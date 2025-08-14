@@ -1,6 +1,6 @@
 <!-- Dark Earth (Simplified Rules) Character Sheet HTML -->
 <!-- Coding by Zedafty -->
-<!-- Version 1.00 -->
+<!-- Version 1.01 -->
 
 <input type="hidden" name="attr_sheet-version" value="0" />
 <input type="hidden" name="attr_sheet-init" value="0" />
@@ -9,6 +9,13 @@
 <input type="hidden" name="attr_sheet-type" class="type" value="pc" />
 <input type="hidden" name="attr_settings-toggle" value="0" />
 <input type="hidden" name="attr_wgm" value="" />
+<input type="hidden" name="attr_show-skills" value="0" />
+<input type="hidden" name="attr_show-survival-gear" value="0" />
+<input type="hidden" name="attr_show-equipment" value="0" />
+<input type="hidden" name="attr_show-wpn2" value="0" />
+<input type="hidden" name="attr_show-wpn3" value="0" />
+<input type="hidden" name="attr_show-wpn4" value="0" />
+<input type="hidden" name="attr_show-wpn5" value="0" />
 
 <div class="page">
 
@@ -142,8 +149,7 @@
 				<label data-i18n="sheet-theme"></label>
 				<select name="attr_sheet-theme" title="@{theme}">
 					<option value="default" data-i18n="sheet-theme-default" selected></option>
-					<option value="light" data-i18n="sheet-theme-light"></option>
-					<option value="dark" data-i18n="sheet-theme-dark"></option>
+					<option value="shaded" data-i18n="sheet-theme-shaded"></option>
 				</select>
 			</div>
 			<div class="recalc">
@@ -163,6 +169,7 @@
 			<div>
 				<label data-i18n="init"></label>
 				<input type="number" name="attr_init-mod" title="@{init-mod}" value="0" />
+				<input type="hidden" name="attr_init-last" value="0" />
 			</div>
 			<div>
 				<label data-i18n="encumbrance"></label>
@@ -193,6 +200,45 @@
 				<label class="check-box">
 					<input type="checkbox" name="attr_wpn-def-shd" title="@{wpn-def-shd}" value="1" />
 					<span data-i18n="opt-wpn-def-shd"></span>
+				</label>
+			</div>
+		</div>
+		<div class="visibility">
+			<h4 data-i18n="visibility"></h4>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-skills" title="@{show-skills}" value="1" />
+					<span data-i18n="show-skills"></span>
+				</label>
+			</div>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-survival-gear" title="@{show-survival-gear}" value="1" />
+					<span data-i18n="show-survival-gear"></span>
+				</label>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-equipment" title="@{show-equipment}" value="1" />
+					<span data-i18n="show-equipment"></span>
+				</label>
+			</div>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-wpn2" title="@{show-wpn2}" value="1" />
+					<span data-i18n="show-wpn2"></span>
+				</label>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-wpn3" title="@{show-wpn3}" value="1" />
+					<span data-i18n="show-wpn3"></span>
+				</label>
+			</div>
+			<div>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-wpn4" title="@{show-wpn4}" value="1" />
+					<span data-i18n="show-wpn4"></span>
+				</label>
+				<label class="check-box">
+					<input type="checkbox" name="attr_show-wpn5" title="@{show-wpn5}" value="1" />
+					<span data-i18n="show-wpn5"></span>
 				</label>
 			</div>
 		</div>
@@ -284,24 +330,28 @@
 						<label data-i18n="skl-combat"></label>
 						<div>
 							<div>
+								<input type="hidden" name="attr_skl-wpn-light" class="has-value" value="0" />
 								<button type="action" name="act_skl-wpn-light" title="%{skl-wpn-light}" data-i18n="skl-wpn-light"></button>
 							</div>
 							<input type="number" name="attr_skl-wpn-light" title="@{skl-wpn-light}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-wpn-heavy" class="has-value" value="0" />
 								<button type="action" name="act_skl-wpn-heavy" title="%{skl-wpn-heavy}" data-i18n="skl-wpn-heavy"></button>
 							</div>
 							<input type="number" name="attr_skl-wpn-heavy" title="@{skl-wpn-heavy}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-wpn-throw" class="has-value" value="0" />
 								<button type="action" name="act_skl-wpn-throw" title="%{skl-wpn-throw}" data-i18n="skl-wpn-throw"></button>
 							</div>
 							<input type="number" name="attr_skl-wpn-throw" title="@{skl-wpn-throw}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-wpn-fire" class="has-value" value="0" />
 								<button type="action" name="act_skl-wpn-fire" title="%{skl-wpn-fire}" data-i18n="skl-wpn-fire"></button>
 							</div>
 							<input type="number" name="attr_skl-wpn-fire" title="@{skl-wpn-fire}" min="0" max="10" value="0" />
@@ -311,24 +361,28 @@
 						<label data-i18n="skl-communication"></label>
 						<div>
 							<div>
+								<input type="hidden" name="attr_skl-bullshit" class="has-value" value="0" />
 								<button type="action" name="act_skl-bullshit" title="%{skl-bullshit}" data-i18n="skl-bullshit"></button>
 							</div>
 							<input type="number" name="attr_skl-bullshit" title="@{skl-bullshit}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-oratory" class="has-value" value="0" />
 								<button type="action" name="act_skl-oratory" title="%{skl-oratory}" data-i18n="skl-oratory"></button>
 							</div>
 							<input type="number" name="attr_skl-oratory" title="@{skl-oratory}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-empathy" class="has-value" value="0" />
 								<button type="action" name="act_skl-empathy" title="%{skl-empathy}" data-i18n="skl-empathy"></button>
 							</div>
 							<input type="number" name="attr_skl-empathy" title="@{skl-empathy}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-bargain" class="has-value" value="0" />
 								<button type="action" name="act_skl-bargain" title="%{skl-bargain}" data-i18n="skl-bargain"></button>
 							</div>
 							<input type="number" name="attr_skl-bargain" title="@{skl-bargain}" min="0" max="10" value="0" />
@@ -338,24 +392,28 @@
 						<label data-i18n="skl-erudition"></label>
 						<div>
 							<div>
+								<input type="hidden" name="attr_skl-folklore" class="has-value" value="0" />
 								<button type="action" name="act_skl-folklore" title="%{skl-folklore}" data-i18n="skl-folklore"></button>
 							</div>
 							<input type="number" name="attr_skl-folklore" title="@{skl-folklore}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-letters" class="has-value" value="0" />
 								<button type="action" name="act_skl-letters" title="%{skl-letters}" data-i18n="skl-letters"></button>
 							</div>
 							<input type="number" name="attr_skl-letters" title="@{skl-letters}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-territory" class="has-value" value="0" />
 								<button type="action" name="act_skl-territory" title="%{skl-territory}" data-i18n="skl-territory"></button>
 							</div>
 							<input type="number" name="attr_skl-territory" title="@{skl-territory}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-tradition" class="has-value" value="0" />
 								<button type="action" name="act_skl-tradition" title="%{skl-tradition}" data-i18n="skl-tradition"></button>
 							</div>
 							<input type="number" name="attr_skl-tradition" title="@{skl-tradition}" min="0" max="10" value="0" />
@@ -365,24 +423,28 @@
 						<label data-i18n="skl-technic"></label>
 						<div>
 							<div>
+								<input type="hidden" name="attr_skl-construct" class="has-value" value="0" />
 								<button type="action" name="act_skl-construct" title="%{skl-construct}" data-i18n="skl-construct"></button>
 							</div>
 							<input type="number" name="attr_skl-construct" title="@{skl-construct}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-making" class="has-value" value="0" />
 								<button type="action" name="act_skl-making" title="%{skl-making}" data-i18n="skl-making"></button>
 							</div>
 							<input type="number" name="attr_skl-making" title="@{skl-making}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-mecanical" class="has-value" value="0" />
 								<button type="action" name="act_skl-mecanical" title="%{skl-mecanical}" data-i18n="skl-mecanical"></button>
 							</div>
 							<input type="number" name="attr_skl-mecanical" title="@{skl-mecanical}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-medicine" class="has-value" value="0" />
 								<button type="action" name="act_skl-medicine" title="%{skl-medicine}" data-i18n="skl-medicine"></button>
 							</div>
 							<input type="number" name="attr_skl-medicine" title="@{skl-medicine}" min="0" max="10" value="0" />
@@ -392,24 +454,28 @@
 						<label data-i18n="skl-survival"></label>
 						<div>
 							<div>
+								<input type="hidden" name="attr_skl-fauna" class="has-value" value="0" />
 								<button type="action" name="act_skl-fauna" title="%{skl-fauna}" data-i18n="skl-fauna"></button>
 							</div>
 							<input type="number" name="attr_skl-fauna" title="@{skl-fauna}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-flora" class="has-value" value="0" />
 								<button type="action" name="act_skl-flora" title="%{skl-flora}" data-i18n="skl-flora"></button>
 							</div>
 							<input type="number" name="attr_skl-flora" title="@{skl-flora}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-darkness" class="has-value" value="0" />
 								<button type="action" name="act_skl-darkness" title="%{skl-darkness}" data-i18n="skl-darkness"></button>
 							</div>
 							<input type="number" name="attr_skl-darkness" title="@{skl-darkness}" min="0" max="10" value="0" />
 						</div>
 						<div class="merge-inputs">
 							<div>
+								<input type="hidden" name="attr_skl-stallite" class="has-value" value="0" />
 								<button type="action" name="act_skl-stallite" title="%{skl-stallite}" data-i18n="skl-stallite"></button>
 							</div>
 							<input type="number" name="attr_skl-stallite" title="@{skl-stallite}" min="0" max="10" value="0" />
@@ -728,12 +794,17 @@
 							<div>
 								<small></small>
 								<small></small>
+								<small><abbr data-i18n="shd-eqp-abbr" data-i18n-title="shd-eqp"></abbr></small>
 								<small><abbr data-i18n="def-abbr" data-i18n-title="def"></abbr></small>
 								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
 							</div>
 							<div>
 								<label data-i18n="shd-lbl"></label>
 								<input type="text" name="attr_shd-name" title="@{shd-name}" data-i18n-placeholder="shd-name-pl" />
+								<label class="check-box no-text">
+									<input type="checkbox" name="attr_shd-eqp" title="@{shd-eqp}" value="1" checked />
+									<span></span>
+								</label>
 								<input type="number" name="attr_shd-def" title="@{shd-def}" value="0" min="0" max="5" />
 								<input type="number" name="attr_shd-enc" title="@{shd-enc}" value="0" min="0" max="10" />
 							</div>
@@ -742,24 +813,27 @@
 
 					<!-- SURVIVAL GEAR -->
 					<div class="survival-gear section border">
-						<h4 data-i18n="survival-gear"></h4>
+						<h4><button type="roll" name="roll_survival-gear" title="%{survival-gear}" data-i18n="survival-gear" value="@{wgm} &{template:survival-gear} {{type=pc}} {{char=@{char-name}}} {{title=^{survival-gear}}} {{food=[[@{food-lvl} * @{food-qtt}]]}} {{drink=[[@{drink-lvl} * @{drink-qtt}]]}} {{cloth=[[@{cloth-lvl}]]}} {{filter=[[@{filter-lvl}]]}} {{light=[[@{light-lvl}]]}}"></button></h4>
 						<div>
 							<div>
 								<small></small>
 								<small></small>
 								<small><abbr data-i18n="qtt-abbr" data-i18n-title="qtt"></abbr></small>
+								<small data-i18n="gear-lvl"></small>
 								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
 							</div>
 							<div>
 								<label data-i18n="danger-hunger"></label>
 								<input type="text" name="attr_food-name" title="@{food-name}" data-i18n-placeholder="gear-food-pl" />
 								<input type="number" name="attr_food-qtt" title="@{food-qtt}" value="0" min="0" max="999" />
+								<input type="number" name="attr_food-lvl" title="@{food-lvl}" value="0" min="0" max="3" />
 								<input type="number" name="attr_food-enc" title="@{food-enc}" value="0" min="0" max="10" />
 							</div>
 							<div class="merge-inputs">
 								<label data-i18n="danger-thirst"></label>
 								<input type="text" name="attr_drink-name" title="@{drink-name}" data-i18n-placeholder="gear-drink-pl" />
 								<input type="number" name="attr_drink-qtt" title="@{drink-qtt}" value="0" min="0" max="999" />
+								<input type="number" name="attr_drink-lvl" title="@{drink-lvl}" value="0" min="0" max="3" />
 								<input type="number" name="attr_drink-enc" title="@{drink-enc}" value="0" min="0" max="10" />
 							</div>
 							<div>
@@ -771,19 +845,19 @@
 							<div>
 								<label data-i18n="danger-cold"></label>
 								<input type="text" name="attr_cloth-name" title="@{cloth-name}" data-i18n-placeholder="gear-cloth-pl" />
-								<input type="number" name="attr_cloth-lvl" title="@{cloth-lvl}" value="1" min="1" max="3" />
+								<input type="number" name="attr_cloth-lvl" title="@{cloth-lvl}" value="0" min="0" max="3" />
 								<input type="number" name="attr_cloth-enc" title="@{cloth-enc}" value="0" min="0" max="10" />
 							</div>
 							<div class="merge-inputs">
 								<label data-i18n="danger-wind"></label>
 								<input type="text" name="attr_filter-name" title="@{filter-name}" data-i18n-placeholder="gear-filter-pl" />
-								<input type="number" name="attr_filter-lvl" title="@{filter-lvl}" value="1" min="1" max="3" />
+								<input type="number" name="attr_filter-lvl" title="@{filter-lvl}" value="0" min="0" max="3" />
 								<input type="number" name="attr_filter-enc" title="@{filter-enc}" value="0" min="0" max="10" />
 							</div>
 							<div class="merge-inputs">
 								<label data-i18n="danger-darkness"></label>
 								<input type="text" name="attr_light-name" title="@{light-name}" data-i18n-placeholder="gear-light-pl" />
-								<input type="number" name="attr_light-lvl" title="@{light-lvl}" value="1" min="1" max="3" />
+								<input type="number" name="attr_light-lvl" title="@{light-lvl}" value="0" min="0" max="3" />
 								<input type="number" name="attr_light-enc" title="@{light-enc}" value="0" min="0" max="10" />
 							</div>
 						</div>

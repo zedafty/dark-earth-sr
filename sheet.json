@@ -121,6 +121,76 @@
 			"descriptiontranslationkey" : "json-wpn-def-shd-desc"
 		},
 		{
+			"attribute" : "show-skills",
+			"displayname" : "Show Skills section?",
+			"displaytranslationkey" : "json-show-skills",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the Skills section will be visible by default. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-skills-desc"
+		},
+		{
+			"attribute" : "show-survival-gear",
+			"displayname" : "Show Survival Gear section?",
+			"displaytranslationkey" : "json-show-survival-gear",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the Survival Gear section will be visible by default. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-survival-gear-desc"
+		},
+		{
+			"attribute" : "show-equipment",
+			"displayname" : "Show Equipment section?",
+			"displaytranslationkey" : "json-show-equipment",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the Equipment section will be visible by default. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-equipment-desc"
+		},
+		{
+			"attribute" : "show-wpn2",
+			"displayname" : "Show second melee weapon?",
+			"displaytranslationkey" : "json-show-wpn2",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the second melee weapon will be visible by default in the Weapons section. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-wpn2-desc"
+		},
+		{
+			"attribute" : "show-wpn3",
+			"displayname" : "Show third melee weapon?",
+			"displaytranslationkey" : "json-show-wpn3",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the third melee weapon will be visible by default in the Weapons section. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-wpn3-desc"
+		},
+		{
+			"attribute" : "show-wpn4",
+			"displayname" : "Show thrown weapon?",
+			"displaytranslationkey" : "json-show-wpn4",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the thrown weapon will be visible by default in the Weapons section. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-wpn4-desc"
+		},
+		{
+			"attribute" : "show-wpn5",
+			"displayname" : "Show fire weapon?",
+			"displaytranslationkey" : "json-show-wpn5",
+			"type" : "checkbox",
+			"value" : "1",
+			"checked" : "checked",
+			"description" : "If checked, the fire weapon will be visible by default in the Weapons section. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-show-wpn5-desc"
+		},
+		{
 			"attribute" : "whisper-toggle",
 			"displayname" : "Whisper rolls to GM?",
 			"displaytranslationkey" : "json-wgm",

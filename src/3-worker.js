@@ -5,7 +5,8 @@
 // =============================================================================
 
 const Sheet = {
-	"version" : 1.00
+	"version" : 1.01,
+	"name" : "Dark Earth (Simplified Rules)"
 };
 
 // =============================================================================
@@ -73,7 +74,7 @@ const SkillAttrs = ["skl-wpn-light", "skl-wpn-heavy", "skl-wpn-throw", "skl-wpn-
 const ConditionAttrs = ["cond-exhausted", "cond-wounded", "cond-dying", "cond-encumbered", "cond-overburdened"];
 const WoundAttrs = ["wnd1", "wnd2", "wnd3", "wnd4", "wnd5"];
 const WeatherAttrs = ["wth1", "wth2", "wth3", "wth4", "wth5"];
-const MinMaxAttrs = [...WoundAttrs, ...WeatherAttrs, "wpn1-dmg", "wpn2-dmg", "wpn3-dmg", "wpn4-dmg", "wpn5-dmg", "wpn1-def", "wpn2-def", "wpn3-def", "wpn5-rld", "wpn4-mun", "wpn5-mun", "wpn4-rng1", "wpn4-rng2", "wpn4-rng3", "wpn5-rng1", "wpn5-rng2", "wpn5-rng3", "shd-def", "cloth-lvl", "filter-lvl", "light-lvl"];
+const MinMaxAttrs = [...WoundAttrs, ...WeatherAttrs, "wpn1-dmg", "wpn2-dmg", "wpn3-dmg", "wpn4-dmg", "wpn5-dmg", "wpn1-def", "wpn2-def", "wpn3-def", "wpn5-rld", "wpn4-mun", "wpn5-mun", "wpn4-rng1", "wpn4-rng2", "wpn4-rng3", "wpn5-rng1", "wpn5-rng2", "wpn5-rng3", "shd-def", "food-lvl", "drink-lvl", "cloth-lvl", "filter-lvl", "light-lvl"];
 const QuantityAttrs = ["food-qtt", "drink-qtt"];
 const EncumbranceAttrs = ["wpn1-enc", "wpn2-enc", "wpn3-enc", "wpn4-enc", "wpn5-enc", "arm-enc", "shd-enc", "food-enc", "drink-enc", "cloth-enc", "filter-enc", "light-enc"];
 const EncumbrancePenaltyAttrs = ["abi-str", "abi-agi", "skl-wpn-light", "skl-wpn-heavy", "skl-wpn-throw", "skl-wpn-fire", "init", "wpn1", "wpn2", "wpn3", "wpn4", "wpn5", "wpn1-def", "wpn2-def", "wpn3-def", "wpn4-def", "wpn5-def"];
@@ -153,6 +154,14 @@ on("change:health-mod", setMaxHealth);
 on("change:energy-mod", setMaxEnergy);
 on("change:init-mod", setInitiative);
 on("change:enc-mod", setMaxEncumbrance);
+
+on("change:cond-autoset", function(e) {
+	if (e.newValue == "1") {
+		checkEnergyConditions();
+		checkWoundConditions();
+		checkEncumbranceConditions();
+	}
+});
 
 // =============================================================================
 // -----------------------------------------------------------------------------
@@ -460,7 +469,7 @@ const MinMax = {
 	"rng" : [0, 999],
 	"qtt" : [0, 999],
 	"enc" : [0, 10],
-	"lvl" : [1, 3]
+	"lvl" : [0, 3]
 };
 
 function getMin(k) { // k = key ; returns number
@@ -493,7 +502,7 @@ on(getAbilityTriggers() + " " + getSkillTriggers() + " " + getMinMaxTriggers() +
 		let s = e.sourceAttribute;
 		let n = e.newValue;
 		let k = getMinMaxKey(s);
-		let d = s.endsWith("-lvl") ? 1 : 0;
+		let d = 0;
 		let u = {};
 		if (k) {
 			u[s] = clamp(n, getMin(k), getMax(k), d); // force format
@@ -523,7 +532,7 @@ function recalculate() {
 			a.forEach(o => {
 				k = getMinMaxKey(o);
 				n = toInt(v[o]);
-				d = o.endsWith("-lvl") ? 1 : 0;
+				d = 0;
 				if (k) u[o] = clamp(n, getMin(k), getMax(k), d); // force format
 			});
 			// Abilities
@@ -568,7 +577,7 @@ on("clicked:recalc", recalculate);
 
 on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTriggers() + " clicked:roll clicked:init clicked:arm", e => {
 	let k = e.triggerName.substr(8);
-	let a = [k, ...ConditionAttrs, "mod", "mod-autoreset", "shd-def", "wpn-str-half", "wpn-def-shd"];
+	let a = [k, ...ConditionAttrs, "mod", "mod-autoreset", "wpn-def-shd", "shd-def", "shd-eqp", "wpn-str-half"];
 	let is_def = k.endsWith("def");
 	if (is_def) {
 		k = crop(k, 4); // wpn1-def => wpn1
@@ -589,7 +598,7 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 	if (has_name) a.push(k + "-name");
 	getAttrs(a, v => {
 		let base;
-		let def = is_def ? toInt(v[k + "-def"]) + (v["wpn-def-shd"] == "1" ? toInt(v["shd-def"]) : 0) : 0;
+		let def = is_def ? toInt(v[k + "-def"]) + (v["wpn-def-shd"] == "1" && v["shd-eqp"] == "1" ? toInt(v["shd-def"]) : 0) : 0;
 		let mod = toInt(v["mod"]) + def;
 		let val = 0;
 		if (is_arm) {
@@ -633,10 +642,10 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 		// Expression
 		let expr = [
 			"@{wgm}",
-			"&{template:result}",
+			"&{template:roll}",
 			"{{type=@{sheet-type}}}",
 			"{{char=@{char-name}}}",
-			"{{name=" + name + "}}",
+			"{{title=" + name + "}}",
 			"{{roll=[[" + roll + "]]}}",
 			"{{base=[[" + base + "]]}}",
 			"{{mod=[[" + mod + "]]}}"
@@ -689,7 +698,11 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 			finishRoll(r.rollId, {"roll" : s});
 			let u = {};
 			if (is_roll) u["roll"] = 0;
-			if (mod_reset) u["mod"] = 0;
+			if (is_init) u["init-last"] = Number.isInteger(s) ? s : 0;
+			if (mod_reset) {
+				u["mod"] = 0;
+				u["mod-reset-show"] = 0;
+			}
 			if (Object.keys(u).length > 0) setAttrs(u, {"silent" : true});
 		});
 	});
@@ -702,7 +715,9 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 // =============================================================================
 
 const updateSheetVersion = {
-	"1.00" : function() {}
+	"1.01" : function() {
+		setAttrs({"sheet-theme" : "default"});
+	}
 };
 
 function initializeSheet() {
@@ -723,11 +738,11 @@ function checkVersion() {
 			if (c1 || c2) {
 				u["sheet-version"] = Sheet.version.toFixed(2);
 				if (c1) {
-					console.info("Dark Earth (Simplified Rules) Character Sheet being initialized"); // DEBUG
+					console.info(Sheet.name + " Character Sheet being initialized"); // DEBUG
 					initializeSheet();
 				} else if (c2) {
-					if (n < 1.00) updateSheetVersion["1.00"]();
-					console.info("Character Sheet updated to version " + Sheet.version); // DEBUG
+					if (n < 1.01) updateSheetVersion["1.01"]();
+					console.info(Sheet.name + " Character Sheet updated to version " + Sheet.version); // DEBUG
 				}
 			}
 			if (c3) {
@@ -736,7 +751,7 @@ function checkVersion() {
 			}
 			setAttrs(u, {"silent" : true});
 		} else {
-			console.info("Dark Earth (Simplified Rules) Character Sheet v" + Sheet.version.toFixed(2) + " loaded"); // DEBUG
+			console.info(Sheet.name + " Character Sheet v" + Sheet.version.toFixed(2) + " loaded"); // DEBUG
 		}
 	});
 };
