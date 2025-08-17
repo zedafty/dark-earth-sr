@@ -1,6 +1,6 @@
 <!-- Dark Earth (Simplified Rules) Character Sheet HTML -->
 <!-- Coding by Zedafty -->
-<!-- Version 1.01 -->
+<!-- Version 1.02 -->
 
 <input type="hidden" name="attr_sheet-version" value="0" />
 <input type="hidden" name="attr_sheet-init" value="0" />
@@ -35,7 +35,7 @@
 
 			<!-- CHARACTER STATS -->
 			<div class="character-stats">
-				<div>
+				<div class="pc npc">
 					<div>
 						<label data-i18n="char-caste"></label>
 						<input type="text" name="attr_char-caste" title="@{char-caste}" data-i18n-placeholder="char-caste-pl" />
@@ -45,7 +45,7 @@
 						<input type="text" name="attr_char-role" title="@{char-role}" data-i18n-placeholder="char-role-pl" />
 					</div>
 				</div>
-				<div>
+				<div class="pc npc">
 					<div>
 						<label data-i18n="char-gender"></label>
 						<select name="attr_char-gender" title="@{char-gender}">
@@ -57,6 +57,16 @@
 					<div>
 						<label data-i18n="char-age"></label>
 						<input type="number" name="attr_char-age" title="@{char-age}" min="0" value="18" />
+					</div>
+				</div>
+				<div class="cre">
+					<div>
+						<label data-i18n="char-type"></label>
+						<input type="text" name="attr_char-type" title="@{char-type}" data-i18n-placeholder="char-type-pl" />
+					</div>
+					<div>
+						<label data-i18n="char-env"></label>
+						<input type="text" name="attr_char-env" title="@{char-env}" data-i18n-placeholder="char-env-pl" />
 					</div>
 				</div>
 			</div>
@@ -198,8 +208,8 @@
 			</div>
 			<div>
 				<label class="check-box">
-					<input type="checkbox" name="attr_wpn-def-shd" title="@{wpn-def-shd}" value="1" />
-					<span data-i18n="opt-wpn-def-shd"></span>
+					<input type="checkbox" name="attr_enc-qtt" title="@{enc-qtt}" value="1" />
+					<span data-i18n="opt-enc-qtt"></span>
 				</label>
 			</div>
 		</div>
@@ -479,13 +489,6 @@
 								<button type="action" name="act_skl-stallite" title="%{skl-stallite}" data-i18n="skl-stallite"></button>
 							</div>
 							<input type="number" name="attr_skl-stallite" title="@{skl-stallite}" min="0" max="10" value="0" />
-						</div>
-					</div>
-					<div>
-						<label data-i18n="notes"></label>
-						<div class="autoexpand">
-							<textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes-pl" title="@{notes}"></textarea>
-							<span name="attr_notes"></span>
 						</div>
 					</div>
 				</div>
@@ -865,23 +868,38 @@
 
 				</div>
 
-				<!-- EQUIPMENT -->
-				<div class="equipment section">
-					<h4 data-i18n="equipment"></h4>
-					<div>
-						<div class="grid-row">
-							<small></small>
-							<small><abbr data-i18n="qtt-abbr" data-i18n-title="qtt"></abbr></small>
-							<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
-						</div>
-						<fieldset class="repeating_items">
+				<div>
+
+					<!-- EQUIPMENT -->
+					<div class="equipment section">
+						<h4 data-i18n="equipment"></h4>
+						<div>
 							<div class="grid-row">
-								<input type="text" name="attr_name" title="@{repeating_items_$X_name}" data-i18n-placeholder="eqp-name-pl" />
-								<input type="number" name="attr_qtt" title="@{repeating_items_$X_qtt}" value="0" min="0" max="999" />
-								<input type="number" name="attr_enc" title="@{repeating_items_$X_enc}" value="0" min="0" max="10" />
+								<small></small>
+								<small><abbr data-i18n="qtt-abbr" data-i18n-title="qtt"></abbr></small>
+								<small><abbr data-i18n="enc-abbr" data-i18n-title="enc"></abbr></small>
 							</div>
-						</fieldset>
+							<fieldset class="repeating_items">
+								<div class="grid-row">
+									<input type="text" name="attr_name" title="@{repeating_items_$X_name}" data-i18n-placeholder="eqp-name-pl" />
+									<input type="number" name="attr_qtt" title="@{repeating_items_$X_qtt}" value="0" min="0" max="999" />
+									<input type="number" name="attr_enc" title="@{repeating_items_$X_enc}" value="0" min="0" max="10" />
+								</div>
+							</fieldset>
+						</div>
 					</div>
+
+					<!-- NOTES -->
+					<div class="notes section">
+						<h4 data-i18n="notes"></h4>
+						<div>
+							<div class="autoexpand">
+								<textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes-pl" title="@{notes}"></textarea>
+								<span name="attr_notes"></span>
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 			</div>

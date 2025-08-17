@@ -111,14 +111,13 @@
 			"descriptiontranslationkey" : "json-wpn-str-half-desc"
 		},
 		{
-			"attribute" : "wpn-def-shd",
-			"displayname" : "Add shield defense to melee weapons?",
-			"displaytranslationkey" : "json-wpn-def-shd",
+			"attribute" : "enc-qtt",
+			"displayname" : "Encumbrance based on quantity?",
+			"displaytranslationkey" : "json-enc-qtt",
 			"type" : "checkbox",
 			"value" : "1",
-			"checked" : "checked",
-			"description" : "If checked, the shield defense value will be added to any melee weapon Parry roll. This option can later be changed under the “Settings” section.",
-			"descriptiontranslationkey" : "json-wpn-def-shd-desc"
+			"description" : "If checked, each encumbrance entry is multiplied by quantity when available. This option can later be changed under the “Settings” section.",
+			"descriptiontranslationkey" : "json-enc-qtt-desc"
 		},
 		{
 			"attribute" : "show-skills",

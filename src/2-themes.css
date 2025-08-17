@@ -5,7 +5,7 @@
 /* ========================================================================== */
 
 .theme[value="shaded"] ~ .page {
-	border: 1px solid #999;
+	border-color: #999;
 	background-color: #ccc;
 	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/page-banner.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-left.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-right.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-white.jpg");
 	background-position: -60px -10px, left 0, right 0,0 0;
@@ -56,7 +56,8 @@
 .theme[value="shaded"] ~ .page .section.border > div,
 .theme[value="shaded"] ~ .page .section.border input[type="number"],
 .theme[value="shaded"] ~ .page .section.border input[type="text"].number,
-.theme[value="shaded"] ~ .page .abilities .button-box::after {
+.theme[value="shaded"] ~ .page .abilities .button-box::after,
+.theme[value="shaded"] ~ .page .section.notes > div textarea {
 	border-color: #666;
 }
 
@@ -70,7 +71,8 @@
 .theme[value="shaded"] ~ .page .section.border input[type="text"].number:not(:hover):not(:focus) {
 	background-color: #fff9;
 }
-.theme[value="shaded"] ~ .page .section.border > div {
+.theme[value="shaded"] ~ .page .section.border > div,
+.theme[value="shaded"] ~ .page .section.notes > div textarea:not(:hover):not(:focus) {
 	background-color: #fff6;
 }
 .theme[value="shaded"] ~ .page .settings,
@@ -142,7 +144,8 @@
 .sheet-darkmode .page .section.border > div,
 .sheet-darkmode .page .section.border input[type="number"],
 .sheet-darkmode .page .section.border input[type="text"].number,
-.sheet-darkmode .page .abilities .button-box::after {
+.sheet-darkmode .page .abilities .button-box::after,
+.sheet-darkmode .page .section.notes > div textarea {
 	border-color: #444;
 }
 .sheet-darkmode .page .modbar label span {
@@ -152,8 +155,7 @@
 	border-color: #888;
 }
 .sheet-darkmode .page .section.border > h4 {
-	border: 1px solid #444;
-	border-bottom: 0;
+	border-color: #444;
 }
 
 /* Backgrounds */
@@ -174,7 +176,8 @@
 .sheet-darkmode .page .modbar input[type="radio"]:checked + span {
 	background-color: #666;
 }
-.sheet-darkmode .page .section.border > div {
+.sheet-darkmode .page .section.border > div,
+.sheet-darkmode .page .section.notes > div textarea:not(:hover):not(:focus) {
 	background-color: #0003;
 }
 .sheet-darkmode .page .settings,
@@ -214,7 +217,7 @@
 /* ========================================================================== */
 
 .sheet-darkmode .theme[value="shaded"] ~ .page {
-	border: 1px solid #111;
+	border-color: #111;
 	background-color: #222;
 	background-image: url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/page-banner.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-left.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/border-right.png"), url("https://raw.githubusercontent.com/zedafty/dark-earth-sr/main/img/background-gears-black.jpg");
 }
@@ -256,7 +259,8 @@
 .sheet-darkmode .theme[value="shaded"] ~ .page .section.border > div,
 .sheet-darkmode .theme[value="shaded"] ~ .page .section.border input[type="number"],
 .sheet-darkmode .theme[value="shaded"] ~ .page .section.border input[type="text"].number,
-.sheet-darkmode .theme[value="shaded"] ~ .page .abilities .button-box::after {
+.sheet-darkmode .theme[value="shaded"] ~ .page .abilities .button-box::after,
+.sheet-darkmode .theme[value="shaded"] ~ .page .section.notes > div textarea {
 	border-color: #8649;
 }
 .sheet-darkmode .theme[value="shaded"] ~ .page input[type="text"],
@@ -293,7 +297,8 @@
 .sheet-darkmode .theme[value="shaded"] ~ .page .modbar input[type="radio"]:checked + span {
 	background-color: #666;
 }
-.sheet-darkmode .theme[value="shaded"] ~ .page .section.border > div {
+.sheet-darkmode .theme[value="shaded"] ~ .page .section.border > div,
+.sheet-darkmode .theme[value="shaded"] ~ .page .section.notes > div textarea:not(:hover):not(:focus) {
 	background-color: #0003;
 }
 .sheet-darkmode .theme[value="shaded"] ~ .page .settings,

@@ -1,5 +1,16 @@
 <!-- SHEET TEMPLATE -->
-<rolltemplate class="sheet-rolltemplate-roll">
+<rolltemplate class="sheet-rolltemplate-base">
+	<div class="wrapper{{#type}} {{type}}{{/type}}">
+		{{#char}}<div class="header">{{char}}</div>{{/char}}
+		<div class="content">
+			{{#title}}<div class="title">{{title}}</div>{{/title}}
+			{{#roll}}<div class="result"><span>{{roll}}</span></div>{{/roll}}
+			{{#desc}}<div class="desc">{{desc}}</div>{{/desc}}
+		</div>
+	</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-result">
 	<div class="wrapper{{#type}} {{type}}{{/type}}">
 		{{#overburdened}}<div class="condition overburdened" data-i18n-title="cond-overburdened">O</div>{{/overburdened}}
 		{{#encumbered}}<div class="condition encumbered" data-i18n-title="cond-encumbered">O</div>{{/encumbered}}
@@ -13,16 +24,6 @@
 			<div class="result"><span>{{computed::roll}}</span></div>
 			{{#dmg}}<div class="damage"><span data-i18n="roll-damages"></span> {{#rollGreater() dmg -1}}+{{/rollGreater() dmg -1}}{{dmg}}</div>{{/dmg}}
 			{{#spec}}<div class="special">{{spec}}</div>{{/spec}}
-		</div>
-	</div>
-</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-desc">
-	<div class="wrapper{{#type}} {{type}}{{/type}}">
-		{{#char}}<div class="header">{{char}}</div>{{/char}}
-		<div class="content">
-			{{#title}}<div class="title">{{title}}</div>{{/title}}
-			{{#desc}}<div class="desc">{{desc}}</div>{{/desc}}
 		</div>
 	</div>
 </rolltemplate>

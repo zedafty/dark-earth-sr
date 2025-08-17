@@ -1,6 +1,6 @@
 /* Dark Earth (Simplified Rules) Character Sheet CSS */
 /* Coding by Zedafty */
-/* Version 1.01 */
+/* Version 1.02 */
 
 /* ========================================================================== */
 /* -------------------------------------------------------------------------- */
@@ -24,6 +24,7 @@
 	min-height: 100vh;
 	padding: 10px;
 	font-family: serif;
+	border: 1px solid transparent;
 }
 .page::before {
 	content: "";
@@ -234,7 +235,6 @@
 	background-color: #c246 !important;
 }
 .select-box > select:hover + input[type="number"] {
-	cursor: pointer;
 	background-color: #c243 !important;
 }
 
@@ -375,7 +375,6 @@
 	left: calc(50% - 3px);
 	top: 8px;
 }
-
 
 /* ========================================================================== */
 /* -------------------------------------------------------------------------- */
@@ -522,6 +521,12 @@
 }
 .page .character-stats > div > div > input[type="number"] {
 	width: 32px;
+}
+.type[value="cre"] ~ .page .character-stats {
+	grid-template-columns: 1fr;
+}
+.type[value="cre"] ~ .page .character-stats div > div {
+	grid-template-columns: 72px auto;
 }
 
 /* ========================================================================== */
@@ -848,6 +853,8 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 }
 .section.border > h4 {
 	color: #fff;
+	border: 1px solid transparent;
+	border-bottom: 0;
 	background-color: #000;
 }
 .section.border > h4 > button[type="roll"] {
@@ -980,9 +987,8 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 	width: 12px;
 	font-style: normal;
 }
-.skills > div > div:nth-child(6) {
-	grid-column-start: 1;
-	grid-row-start: 3;
+.skills > div > div:nth-child(5) {
+	grid-column-start: 2;
 }
 .skills .has-value[value="0"] + button {
 	font-weight: normal;
@@ -1306,6 +1312,15 @@ input[type="hidden"][name="attr_settings-toggle"][value="1"] ~ .page .settings {
 /* # Visibility */
 /* -------------------------------------------------------------------------- */
 /* ========================================================================== */
+
+.type[value="pc"] ~ .page .npc:not(.pc),
+.type[value="pc"] ~ .page .cre,
+.type[value="npc"] ~ .page .pc:not(.npc),
+.type[value="npc"] ~ .page .cre,
+.type[value="cre"] ~ .page .pc,
+.type[value="cre"] ~ .page .npc {
+	display: none;
+}
 
 input[name="attr_show-skills"][value="0"] ~ .page .skills,
 input[name="attr_show-wpn2"][value="0"] ~ .page .weapons > div > div:nth-child(3),

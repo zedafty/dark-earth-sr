@@ -5,7 +5,7 @@
 // =============================================================================
 
 const Sheet = {
-	"version" : 1.01,
+	"version" : 1.02,
 	"name" : "Dark Earth (Simplified Rules)"
 };
 
@@ -163,6 +163,8 @@ on("change:cond-autoset", function(e) {
 	}
 });
 
+on("change:enc-qtt", updateEncumbrance);
+
 // =============================================================================
 // -----------------------------------------------------------------------------
 // # Abilities
@@ -221,7 +223,7 @@ function setHealth() {
 		let n = toInt(v["health_max"]);
 		let i;
 		for (i in a) n -= toInt(v[a[i]]);
-		setAttrs({"health" : Math.max(n, 0)}, {"silent" : true});
+		setAttrs({"health" : n}, {"silent" : true});
 	});
 }
 
@@ -425,14 +427,14 @@ function updateEncumbrance() {
 			a.push(`repeating_items_${o}_enc`);
 			b.push(`repeating_items_${o}_qtt`);
 		});
-		getAttrs(a.concat(b), v => {
+		getAttrs(["enc-qtt", ...a, ...b], v => {
 			let q;
 			let n = 0;
 			a.forEach(o => {
 				q = 1;
 				if (o.startsWith("repeating_")
 					|| o == "food-enc"
-					|| o == "drink-enc") q = toInt(v[crop(o, 3) + "qtt"]); // has quantity
+					|| o == "drink-enc") q = v["enc-qtt"] == 1 ? toInt(v[crop(o, 3) + "qtt"]) : 1; // has quantity
 				n += toInt(v[o]) * q;
 			});
 			setAttrs({"enc" : n}, {"silent" : true}, checkEncumbranceConditions);
@@ -577,7 +579,7 @@ on("clicked:recalc", recalculate);
 
 on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTriggers() + " clicked:roll clicked:init clicked:arm", e => {
 	let k = e.triggerName.substr(8);
-	let a = [k, ...ConditionAttrs, "mod", "mod-autoreset", "wpn-def-shd", "shd-def", "shd-eqp", "wpn-str-half"];
+	let a = [k, ...ConditionAttrs, "mod", "mod-autoreset", "shd-def", "shd-eqp", "wpn-str-half"];
 	let is_def = k.endsWith("def");
 	if (is_def) {
 		k = crop(k, 4); // wpn1-def => wpn1
@@ -598,7 +600,7 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 	if (has_name) a.push(k + "-name");
 	getAttrs(a, v => {
 		let base;
-		let def = is_def ? toInt(v[k + "-def"]) + (v["wpn-def-shd"] == "1" && v["shd-eqp"] == "1" ? toInt(v["shd-def"]) : 0) : 0;
+		let def = is_def ? toInt(v[k + "-def"]) + (v["shd-eqp"] == "1" ? toInt(v["shd-def"]) : 0) : 0;
 		let mod = toInt(v["mod"]) + def;
 		let val = 0;
 		if (is_arm) {
@@ -642,7 +644,7 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 		// Expression
 		let expr = [
 			"@{wgm}",
-			"&{template:roll}",
+			"&{template:result}",
 			"{{type=@{sheet-type}}}",
 			"{{char=@{char-name}}}",
 			"{{title=" + name + "}}",
@@ -677,6 +679,7 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 			let i = 0;
 			let s = 0; // total of successes
 			let f = 0; // number of 1-failures
+			let u = {};
 			if (zero_die) { // 0D
 				if (a[0] == 6) s = 1;
 				else if (a[0] == 1) f = 1;
@@ -687,6 +690,7 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 					else if (a[i] >= 4) s++;
 				}
 			}
+			if (is_init) u["init-last"] = s;
 			if (!is_roll && !is_arm && f == a.length && num > 0) { // fumble
 				s = getLang("roll-fumble");
 			} else if (!is_roll && !is_arm && exhausted && f > 0) { // exhaustion
@@ -696,9 +700,7 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 				s += getLang("roll-success-suffix");
 			}
 			finishRoll(r.rollId, {"roll" : s});
-			let u = {};
 			if (is_roll) u["roll"] = 0;
-			if (is_init) u["init-last"] = Number.isInteger(s) ? s : 0;
 			if (mod_reset) {
 				u["mod"] = 0;
 				u["mod-reset-show"] = 0;
@@ -717,6 +719,9 @@ on(getAbilityTriggers(true) + " " + getSkillTriggers(true) + " " + getWeaponTrig
 const updateSheetVersion = {
 	"1.01" : function() {
 		setAttrs({"sheet-theme" : "default"});
+	},
+	"1.02" : function() {
+		updateEncumbrance();
 	}
 };
 
@@ -742,6 +747,7 @@ function checkVersion() {
 					initializeSheet();
 				} else if (c2) {
 					if (n < 1.01) updateSheetVersion["1.01"]();
+					if (n < 1.02) updateSheetVersion["1.02"]();
 					console.info(Sheet.name + " Character Sheet updated to version " + Sheet.version); // DEBUG
 				}
 			}

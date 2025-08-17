@@ -1,5 +1,5 @@
 # Dark Earth (Simplified Rules)
-![version](https://img.shields.io/badge/version-1.01-green.svg)
+![version](https://img.shields.io/badge/version-1.02-green.svg)
 
 This is a [**Roll20**](https://roll20.net/) character sheet for **Dark Earth** role-playing game co-edited by *Kaliso Entertainment* and *Multisim Editions* (1997-2001). It uses a homebrew set of simplified rules freely inspired from the original game systems of 1st and 2nd editions.
 
@@ -22,6 +22,14 @@ This is a [**Roll20**](https://roll20.net/) character sheet for **Dark Earth** r
 * Printable sheet
 
 # Changelog
+
+## v1.02 (2025-08-17)
+- Add encumbrance multiplied by quantity sheet option
+- Remove shield defense to melee weapons sheet option
+- Allow negative Health points (0 is unconsciousness, less is death)
+- Put Notes section under Equipment instead of inside Skills section
+- Add type and environment fields for Creatures under character header
+- Combine base roll template for generic dice rolls and text ouputs
 
 ## v1.01 (2025-08-14)
 - Fix autoexpand textarea font and word breaking bugs
